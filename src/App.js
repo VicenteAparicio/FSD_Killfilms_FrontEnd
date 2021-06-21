@@ -1,8 +1,12 @@
+// IMPORT MOTORS
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import './App.css';
+// IMPORT CONTAINERS
 import Login from './containers/Login/login';
 import Home from './containers/Home/home';
+import Register from './containers/Register/register';
+// IMPORT STYLES
 import './Global.css';
+import './App.css';
 
 function App() {
   return (
@@ -11,6 +15,7 @@ function App() {
 
         <Route path="/" exact component={Home}/>
         <Route path="/login" exact component={Login}/>
+        <Route path="/register" exact component={Register}/>
 
       </Switch>
     </BrowserRouter>
