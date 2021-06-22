@@ -4,6 +4,8 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Login from './containers/Login/login';
 import Home from './containers/Home/home';
 import Register from './containers/Register/register';
+//IMPORT COMPONENTS
+import Header from './components/Header/header';
 // IMPORT STYLES
 import './Global.css';
 import './App.css';
@@ -11,6 +13,7 @@ import './App.css';
 function App() {
   return (
     <BrowserRouter>
+      <Header/>
       <Switch>
 
         <Route path="/" exact component={Home}/>

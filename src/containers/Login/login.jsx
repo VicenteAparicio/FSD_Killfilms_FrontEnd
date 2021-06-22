@@ -7,7 +7,6 @@ import axios from 'axios';
 // IMPORT ACTIONS
 import {LOGIN} from '../../redux/types';
 // IMPORT STYLES
-import '../../assets/fontcolors.css';
 import './login.css';
 
 const Login = (props) => {
