@@ -7,7 +7,7 @@ import axios from 'axios';
 // IMPORT ACTIONS
 import {LOGIN} from '../../redux/types';
 // IMPORT STYLES
-import '../../assets/fontcolors.css';
+import '../../Global.css';
 import './login.css';
 
 const Login = (props) => {
@@ -33,13 +33,13 @@ const Login = (props) => {
             password: credentials.password,
         }
         
-        let userLogin = await axios.post('http://localhost:3005/user/login', body)
+        let userLogin = await axios.post('http://localhost:3005/login', body)
         //Guardo en RDX
         props.dispatch({type:LOGIN,payload:userLogin.data});
 
-        // setTimeout (()=>{
-        //     history.push("/")
-        // }, 500)
+        setTimeout (()=>{
+            history.push("/profile")
+        }, 500)
         
     }
     

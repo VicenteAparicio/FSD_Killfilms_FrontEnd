@@ -1,9 +1,11 @@
 import React from 'react';
-import './home.css';
+//IMPORT STYLES
+import '../../Global.css'
+
 
 const Home = () => {
     return (
-        <div>home</div>
+        <div className="containerHome">home</div>
     )
 }
 

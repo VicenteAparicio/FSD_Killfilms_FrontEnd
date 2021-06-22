@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 // import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 
-import '../../assets/fontcolors.css';
+import '../../Global.css';
 import './register.css';
 
 const Register = () => {
@@ -10,8 +10,8 @@ const Register = () => {
     // let history = useHistory();
 
     // Hooks
-    const [credentials, setCredentials] = useState({name:'',nick:'',email:'',password:'',birthdate:'',country:'',city:'',isAdmin:'false',isActive:'true'});
-    const [errors, setErrors] = useState({eName: '',eNick: '',eEmail: '',ePassword:'',eBirthdate:'',eCountry:'',eCity:''});
+    const [credentials, setCredentials] = useState({name:'',lastName:'',email:'',password:'',birthDate:'',country:'',city:'', cp:'',isAdmin:'false',isActive:'true'});
+    const [errors, setErrors] = useState({eName: '',eLastName: '',eEmail: '',ePassword:'',eBirthDate:'',eCountry:'',eCity:'', cp:''});
 
     const [msgError, setMensajeError] = useState('');
 
@@ -44,12 +44,13 @@ const Register = () => {
         //A continuación genearmos el body de datos
         let body = {
             name: credentials.name,
-            nick: credentials.nick,
+            lastname: credentials.lastName,
             email: credentials.email,
             password: credentials.password,
-            birthdate: credentials.birthdate,
+            birthdate: credentials.birthDate,
             country: credentials.country,
             city: credentials.city,
+            cp: credentials.cp,
             isAdmin: credentials.isAdmin,
             isActive: credentials.isActive
         }
@@ -76,24 +77,27 @@ const Register = () => {
                 <label className="labelsLogin" for="name">NAME</label>
                 <input require="true" className="inputsLogin" type="text" name="name" onChange={updateCredentials} onBlur={()=>checkError("name")} placeholder="Name"/>
                 <div>{errors.eName}</div>
-                <label className="labelsLogin" for="nick">NICK</label>
-                <input require="true" className="inputsLogin" type="text" name="nick" onChange={updateCredentials} onBlur={()=>checkError("nick")} placeholder="Nick"/>
-                <div>{errors.eNick}</div>
+                <label className="labelsLogin" for="lastName">LASTNAME</label>
+                <input require="true" className="inputsLogin" type="text" name="lastName" onChange={updateCredentials} onBlur={()=>checkError("lastname")} placeholder="Lastname"/>
+                <div>{errors.eLastName}</div>
                 <label className="labelsLogin" for="email">EMAIL</label>
                 <input require="true" className="inputsLogin" type="email" name="email" onChange={updateCredentials} onBlur={()=>checkError("email")} placeholder="Email"/>
                 <div>{errors.eEmail}</div>
                 <label className="labelsLogin" for="password">PASSWORD</label>
                 <input require="true" className="inputsLogin" type="password" name="password" onChange={updateCredentials} onBlur={()=>checkError("password")} placeholder="Password"/>
                 <div>{errors.ePassword}</div>
-                <label className="labelsLogin" for="birthdate">BIRTHDATE</label>
-                <input className="inputsLogin" type="date" name="birthdate" onChange={updateCredentials} onBlur={()=>checkError("birthdate")} placeholder="Birth date"/>
-                <div>{errors.eBirthdate}</div>
+                <label className="labelsLogin" for="birthDate">BIRTHDATE</label>
+                <input className="inputsLogin" type="date" name="birthDate" onChange={updateCredentials} onBlur={()=>checkError("birthdate")} placeholder="Birth date"/>
+                <div>{errors.eBirthDate}</div>
                 <label className="labelsLogin" for="country">COUNTRY</label>
                 <input className="inputsLogin" type="text" name="country" onChange={updateCredentials} onBlur={()=>checkError("country")} placeholder="Country"/>
                 <div>{errors.eCountry}</div>
                 <label className="labelsLogin" for="city">CITY</label>
                 <input className="inputsLogin" type="text" name="city" onChange={updateCredentials} onBlur={()=>checkError("city")} placeholder="City"/>
                 <div>{errors.eCity}</div>
+                <label className="labelsLogin" for="cp">CP</label>
+                <input className="inputsLogin" type="text" name="cp" onChange={updateCredentials} onBlur={()=>checkError("cp")} placeholder="C.P."/>
+                <div>{errors.eCP}</div>
     
                 
 
