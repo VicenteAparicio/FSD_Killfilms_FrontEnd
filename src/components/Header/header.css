@@ -1,9 +1,4 @@
-.header{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background-color: aqua;
-    height: 3em;
-    width: 100%;
-
+header{
+    background-color: blueviolet;
+    padding: 1em 3em;
 }

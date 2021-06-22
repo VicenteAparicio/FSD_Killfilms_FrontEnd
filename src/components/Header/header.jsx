@@ -1,9 +1,14 @@
 import React from 'react';
+import Navigatebar from '../Navigatebar/navigatebar';
+
 import './header.css';
 
 const Header = () => {
+
     return (
-        <div className="header"></div>
+        <header>
+            <Navigatebar/>
+        </header>
     )
 }
 
