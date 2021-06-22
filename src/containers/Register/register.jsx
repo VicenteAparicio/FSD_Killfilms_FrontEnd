@@ -1,13 +1,13 @@
+// IMPORT MOTORS
 import React, {useState} from 'react';
-// import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-
+//IMPORT STYLE
 import '../../Global.css';
-import './register.css';
 
 const Register = () => {
 
-    // let history = useHistory();
+    let history = useHistory();
 
     // Hooks
     const [credentials, setCredentials] = useState({name:'',lastName:'',email:'',password:'',birthDate:'',country:'',city:'', cp:'',isAdmin:'false',isActive:'true'});
@@ -22,17 +22,19 @@ const Register = () => {
 
     // FUNCTION ERROR CHECK
     const checkError = (arg) => {
-        // switch (arg){
-        //     case 'name':
-        //         if(credentials.name.length < 4){
-        //             setErrors({...errors, eName: 'El nombre debe de tener 4 caracteres'});
-        //         }else{
-        //             setErrors({...errors, eName: ''});
-        //         }
-        //     break;
-        //     case 'email':
-        //     break;
-        // }
+        switch (arg){
+            case 'name':
+                if(credentials.name.length < 4){
+                    setErrors({...errors, eName: 'El nombre debe de tener 4 caracteres'});
+                }else{
+                    setErrors({...errors, eName: ''});
+                }
+                break;
+            case 'email':
+                break;
+            default:
+                break;
+        }
     }
 
     const Registration = async () => {
@@ -56,13 +58,16 @@ const Register = () => {
         }
         
         axios
-            .post('http://localhost:3005/user/newuser', body)
-            .then((res)=>{})
+            .post('http://localhost:3005/users/newuser', body)
+            .then((res)=>{
+                if(res){
+                    alert("Gracias por registrarte con nosotros")
+                    history.push('/login')
+                }
+            })
             .catch((error)=>{
                 console.log(error);
             });   
-
-
     }
     
 

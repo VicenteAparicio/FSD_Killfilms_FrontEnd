@@ -8,7 +8,6 @@ import axios from 'axios';
 import {LOGIN} from '../../redux/types';
 // IMPORT STYLES
 import '../../Global.css';
-import './login.css';
 
 const Login = (props) => {
 
@@ -17,7 +16,7 @@ const Login = (props) => {
     // Hooks
     const [credentials, setCredentials] = useState({email:'',password:'',options:'user'});
 
-    const [msgError, setMensajeError] = useState('');
+    // const [Mserror, setError] = useState('');
 
     // Handler
     const updateCredentials = (e) => {
@@ -33,16 +32,22 @@ const Login = (props) => {
             password: credentials.password,
         }
         
-        let userLogin = await axios.post('http://localhost:3005/login', body)
-        //Guardo en RDX
-        props.dispatch({type:LOGIN,payload:userLogin.data});
-
-        setTimeout (()=>{
-            history.push("/profile")
-        }, 500)
-        
-    }
-    
+        axios
+            .post('http://localhost:3005/login', body)
+            .then((res)=>{
+                if(res){
+                    //Guardo en RDX
+                    props.dispatch({type:LOGIN,payload:res.data});
+                    alert("Gracias por loguearte")
+                    history.push('/profile')
+                }
+            })
+            .catch((error)=>{
+                console.log(error);
+            });  
+}
+     
+ 
 
     
 
@@ -54,9 +59,9 @@ const Login = (props) => {
                 <input className="inputsLogin" type="email" name="email" onChange={updateCredentials} placeholder="Email"></input>
                 <label className="labelsLogin dinC" for="password">PASSWORD</label>
                 <input className="inputsLogin" type="password" name="password" onChange={updateCredentials} placeholder="Password"></input>
+                
 
                 <div className="sendButtonLog txtGreen dinC" onClick={()=>SignIn()}>Login</div>
-                <div>{msgError}</div>
             </div>
         </div>
     )

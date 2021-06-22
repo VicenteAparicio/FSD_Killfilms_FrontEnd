@@ -15,7 +15,7 @@ import './App.scss';
 
 function App() {
   return (
-    
+    <div className="containerApp">
     <BrowserRouter>
       <Header/>
       <Switch>
@@ -27,6 +27,7 @@ function App() {
 
       </Switch>
     </BrowserRouter>
+    </div>
   );
 }
 

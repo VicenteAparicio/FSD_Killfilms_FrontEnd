@@ -8,28 +8,27 @@
 .linksContainer{
     all: unset;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly; 
+    flex-direction: row; 
     z-index: 3;
-}
-.linksContainer li{
-    all: unset;
-    margin-left: 2em;
+
+    .links{
+        font-size: 1em;
+        text-decoration: none;
+        cursor: pointer;
+        color: white;
+        margin-left: 2em;
+
+        &:hover{
+            color: $favorito3;
+            transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+        
+        &:first-child{
+            margin-left: 0;
+        }
+    }
 }
 
-.navLinkText{
-    font-size: 1em;
-    text-decoration: none;
-    cursor: pointer;
-    color: white;
-}
-
-.navLinkText:hover{
-    color: rgb(34, 180, 177);
-    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-    
-}
 /* @media (max-width: 1490px) {
     .linksContainer{
         align-items: center;

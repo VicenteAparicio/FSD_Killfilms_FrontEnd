@@ -1,13 +1,11 @@
 import React from 'react';
-import Navigatebar from '../Navigatebar/navigatebar';
-
-import './header.css';
+import Navbar from '../Navbar/navbar';
 
 const Header = () => {
 
     return (
         <header>
-            <Navigatebar/>
+            <Navbar/>
         </header>
     )
 }
