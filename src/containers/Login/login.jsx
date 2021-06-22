@@ -16,7 +16,7 @@ const Login = (props) => {
     // Hooks
     const [credentials, setCredentials] = useState({email:'',password:'',options:'user'});
 
-    // const [Mserror, setError] = useState('');
+    // const [logError, setLogError] = useState(['']);
 
     // Handler
     const updateCredentials = (e) => {
@@ -43,7 +43,8 @@ const Login = (props) => {
                 }
             })
             .catch((error)=>{
-                console.log(error);
+                // setLogError(error);
+
             });  
 }
      
@@ -55,13 +56,14 @@ const Login = (props) => {
 
         <div className="containerLogin">
             <div className="boxLogin bgGreen">
-                <label className="labelsLogin dinC" for="email">EMAIL</label>
+                <label className="labelsLogin" for="email">EMAIL</label>
                 <input className="inputsLogin" type="email" name="email" onChange={updateCredentials} placeholder="Email"></input>
-                <label className="labelsLogin dinC" for="password">PASSWORD</label>
+                <label className="labelsLogin" for="password">PASSWORD</label>
                 <input className="inputsLogin" type="password" name="password" onChange={updateCredentials} placeholder="Password"></input>
                 
 
-                <div className="sendButtonLog txtGreen dinC" onClick={()=>SignIn()}>Login</div>
+                <div className="loginButton" onClick={()=>SignIn()}>Login</div>
+                {/* <div>{logError}</div> */}
             </div>
         </div>
     )
