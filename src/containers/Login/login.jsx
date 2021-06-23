@@ -35,11 +35,13 @@ const Login = (props) => {
         axios
             .post('http://localhost:3005/login', body)
             .then((res)=>{
-                if(res){
-                    //Guardo en RDX
-                    props.dispatch({type:LOGIN,payload:res.data});
-                    alert("Gracias por loguearte")
-                    history.push('/profile')
+                //Guardo en RDX
+                props.dispatch({type:LOGIN,payload:res.data});
+                alert("Gracias por loguearte")
+                if(!res.data.user.isAdmin){
+                    history.push('/client')
+                } else {
+                    history.push('/admin')                
                 }
             })
             .catch((error)=>{

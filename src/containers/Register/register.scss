@@ -3,26 +3,27 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 80vh;
 
-
-    .boxLogin{
-        box-sizing: border-box;
+    .boxRegister{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 80%;
-        height: 40em;
-        padding: 2em;
+        width: 50%;
+        padding: 2em 0;
+        background-color: red;
         
     }
+    .labelsRegister{
+        color: white;
+        font-size: 1em;
+    }
 
-    .inputsLogin {
+    .inputsRegister {
         all: unset;
         background-color: white;
         color: black;
-        padding: .5em;
+        padding: .2em;
         margin: .5em 0 1.5em;
         width: 20vw;
         max-width: 30em;
@@ -31,11 +32,11 @@
 
     .sendButton {
 
-        background-color: $favorito2;
+        background-color: white;
         font-size: 1.2em;
         margin: 2em 0;
         padding: .5em 1em;
-        color: white;
+        color: black;
         cursor: pointer;
         align-self: center;
     }

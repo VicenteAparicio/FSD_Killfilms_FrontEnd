@@ -1,10 +1,10 @@
 // IMPORT MOTORS
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, NavLink } from 'react-router-dom';
 import {connect} from 'react-redux';
 // IMPORT ICONS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 
 //IMPORT COMPONENTS
@@ -17,31 +17,40 @@ const Navbar = (props) => {
 
     let history = useHistory();
     //FUNCTIONS
-    const Login = () => {
-        history.push('/login');
-    }
-    const Home = () => {
-        console.log("/")
-    }
-    const Register = () => {
-        history.push('/register');
-    }
+    // const Login = () => {
+    //     history.push('/login');
+    // }
+    // const Home = () => {
+    //     console.log("/")
+    // }
+    // const Register = () => {
+    //     history.push('/register');
+    // }
+
+    // const Logout = () => {
+    //     props.dispatch({type:LOGOUT});
+    // }
 
     const Logout = () => {
-        props.dispatch({type:LOGOUT});
+                props.dispatch({type:LOGOUT});
+                history.push('/');
     }
+
+    // const Deploymenu = () => {}
 
     if (props.logData.token){
 
         return (
             <div id="navbar">
-                <div id="desplegable" >
-                    {/* <img id="menu" src={menu} alt="Menu container" onClick=""/> */}
-                    <div id="navLinkBox" className="linksContainer" >
-                        <FontAwesomeIcon icon={faCoffee}/>
-                        <div className="links">{props.logData?.user.name.toUpperCase()}</div>
-                        <div className="links" onClick={()=>Logout()}>LOGOUT</div>
-                    </div>
+                <div className="menuDeploy" >
+                    {/* <FontAwesomeIcon className="coffe" icon={faBars} onClick={()=>Deploymenu()}/>  */}
+                    <ul id="navLinkBox" className="linksContainer" >
+                    
+                        <FontAwesomeIcon className="coffe" icon={faCoffee}/>
+                        
+                        <NavLink className="links" to="#">{props.logData?.user.name.toUpperCase()}</NavLink>
+                        <NavLink className="links" to="#" onClick={()=>Logout()}>LOGOUT</NavLink>
+                    </ul>
                 </div>
             </div>
         )
@@ -50,12 +59,12 @@ const Navbar = (props) => {
 
         return (
             <div id="navbar">
-                <div id="desplegable" >
-                    {/* <img id="menu" src={menu} alt="Menu container" onClick=""/> */}
+                <div className="menuDeploy" >
+                    {/* <FontAwesomeIcon className="coffe" icon={faBars} onClick={()=>Deploymenu()}/> */}
                     <div id="navLinkBox" className="linksContainer" >
-                        <div className="links" onClick={()=>Home()}>HOME</div>
-                        <div className="links" onClick={()=>Login()}>LOGIN</div>
-                        <div className="links" onClick={()=>Register()}>REGISTER</div>
+                        <NavLink className="links" to="/">HOME</NavLink>
+                        <NavLink className="links" to="/login">LOGIN</NavLink>
+                        <NavLink className="links" to="/register">REGISTER</NavLink>
                     </div>
                 </div>
             </div>

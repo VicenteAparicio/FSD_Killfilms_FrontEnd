@@ -3,11 +3,25 @@
 }
 #navbar{
     display: flex;
-    justify-content: flex-end;
+    flex-direction: row;
+    justify-content: center;
 }
-.linksContainer{
-    all: unset;
+
+.menuDeploy{
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.coffe{
+    color: white;
+    font-size: .8em;
+}
+
+.linksContainer{
+    display: flex;
+    align-items: center;
     flex-direction: row; 
     z-index: 3;
 

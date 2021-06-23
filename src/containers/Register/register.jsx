@@ -77,31 +77,30 @@ const Register = () => {
 
         <div className="containerRegister">
             {/* <pre>{JSON.stringify(credentials,null,2)}</pre> */}
-            <div className="boxLogin bgGreen">
-                
-                <label className="labelsLogin" for="name">NAME</label>
-                <input require="true" className="inputsLogin" type="text" name="name" onChange={updateCredentials} onBlur={()=>checkError("name")} placeholder="Name"/>
+            <div className="boxRegister">
+                <label className="labelsRegister" for="name">NAME</label>
+                <input require="true" className="inputsRegister" type="text" name="name" onChange={updateCredentials} onBlur={()=>checkError("name")} placeholder="Name"/>
                 <div>{errors.eName}</div>
-                <label className="labelsLogin" for="lastName">LASTNAME</label>
-                <input require="true" className="inputsLogin" type="text" name="lastName" onChange={updateCredentials} onBlur={()=>checkError("lastname")} placeholder="Lastname"/>
+                <label className="labelsRegister" for="lastName">LASTNAME</label>
+                <input require="true" className="inputsRegister" type="text" name="lastName" onChange={updateCredentials} onBlur={()=>checkError("lastname")} placeholder="Lastname"/>
                 <div>{errors.eLastName}</div>
-                <label className="labelsLogin" for="email">EMAIL</label>
-                <input require="true" className="inputsLogin" type="email" name="email" onChange={updateCredentials} onBlur={()=>checkError("email")} placeholder="Email"/>
+                <label className="labelsRegister" for="email">EMAIL</label>
+                <input require="true" className="inputsRegister" type="email" name="email" onChange={updateCredentials} onBlur={()=>checkError("email")} placeholder="Email"/>
                 <div>{errors.eEmail}</div>
-                <label className="labelsLogin" for="password">PASSWORD</label>
-                <input require="true" className="inputsLogin" type="password" name="password" onChange={updateCredentials} onBlur={()=>checkError("password")} placeholder="Password"/>
+                <label className="labelsRegister" for="password">PASSWORD</label>
+                <input require="true" className="inputsRegister" type="password" name="password" onChange={updateCredentials} onBlur={()=>checkError("password")} placeholder="Password"/>
                 <div>{errors.ePassword}</div>
-                <label className="labelsLogin" for="birthDate">BIRTHDATE</label>
-                <input className="inputsLogin" type="date" name="birthDate" onChange={updateCredentials} onBlur={()=>checkError("birthdate")} placeholder="Birth date"/>
+                <label className="labelsRegister" for="birthDate">BIRTHDATE</label>
+                <input className="inputsRegister" type="date" name="birthDate" onChange={updateCredentials} onBlur={()=>checkError("birthdate")} placeholder="Birth date"/>
                 <div>{errors.eBirthDate}</div>
-                <label className="labelsLogin" for="country">COUNTRY</label>
-                <input className="inputsLogin" type="text" name="country" onChange={updateCredentials} onBlur={()=>checkError("country")} placeholder="Country"/>
+                <label className="labelsRegister" for="country">COUNTRY</label>
+                <input className="inputsRegister" type="text" name="country" onChange={updateCredentials} onBlur={()=>checkError("country")} placeholder="Country"/>
                 <div>{errors.eCountry}</div>
-                <label className="labelsLogin" for="city">CITY</label>
-                <input className="inputsLogin" type="text" name="city" onChange={updateCredentials} onBlur={()=>checkError("city")} placeholder="City"/>
+                <label className="labelsRegister" for="city">CITY</label>
+                <input className="inputsRegister" type="text" name="city" onChange={updateCredentials} onBlur={()=>checkError("city")} placeholder="City"/>
                 <div>{errors.eCity}</div>
-                <label className="labelsLogin" for="cp">CP</label>
-                <input className="inputsLogin" type="text" name="cp" onChange={updateCredentials} onBlur={()=>checkError("cp")} placeholder="C.P."/>
+                <label className="labelsRegister" for="cp">CP</label>
+                <input className="inputsRegister" type="text" name="cp" onChange={updateCredentials} onBlur={()=>checkError("cp")} placeholder="C.P."/>
                 <div>{errors.eCP}</div>
     
                 

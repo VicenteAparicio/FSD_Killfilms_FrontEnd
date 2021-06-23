@@ -4,7 +4,7 @@ import axios from 'axios';
 //IMPORT STYLES
 import '../../Global.css'
 
-const Profile = (props) => {
+const Allmovies = (props) => {
 
     const [movies, setMovies] = useState([]);
 
@@ -20,20 +20,19 @@ const Profile = (props) => {
             console.log({message: err.message})
         }
     }
-    // const path = "https://image.tmdb.org/t/p";
+    const path = "https://image.tmdb.org/t/p";
     const size ="w200";
 
 
     return (
-        <div className="profileContainer">
+        <div className="allmoviesContainer">
                     
                     <div className="movieBox">
                         {movies.map((movie, index)=>(
                             
                             <div className="movieCard" key={index}>
+                                <img src={`${path}/${size}${movie.poster_path}`} alt={movie.title}/>
                                 <div className="movieData">
-                                    <img src={`${movie.poster_path}`} alt={movie.title}/>
-                                    {console.log("esto es lo que me lleg", movie)}
                                     <div className="movieName">{movie.title}</div>
                                     <div className="movieInfo">ID: {movie.director}</div>
                                     <div className="movieInfo">Coach: {movie.actors}</div>
@@ -49,4 +48,4 @@ const Profile = (props) => {
 
 export default connect((state)=>(
     {logData:state.credentials}
-))(Profile);
+))(Allmovies);

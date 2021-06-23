@@ -1,10 +1,14 @@
 @import 'scss/variables.scss';
 @import 'containers/Home/home.scss';
-@import 'containers/Profile/profile.scss';
+@import 'containers/Client/client.scss';
 @import 'containers/Register/register.scss';
 @import 'containers/Login/login.scss';
+@import 'containers/Admin/admin.scss';
 @import 'components/Header/header.scss';
 @import 'components/Navbar/navbar.scss';
+@import 'components/Visual/visual.scss';
+@import 'components/Allmovies/allmovies.scss';
+
 
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
@@ -16,7 +20,7 @@
   flex-direction: column;
   height: 100%;
   width: 100%;
-  background-color: lightblue;
+  background-color: black;
 }
 
 // .App {

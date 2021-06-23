@@ -5,7 +5,9 @@ import '../../Global.css'
 
 const Home = () => {
     return (
-        <div className="containerHome">home</div>
+        <div className="containerHome">
+            
+        </div>
     )
 }
 
