@@ -62,7 +62,7 @@ const Login = (props) => {
                 <input className="inputsLogin" type="password" name="password" onChange={updateCredentials} placeholder="Password"></input>
                 
 
-                <div className="loginButton" onClick={()=>SignIn()}>Login</div>
+                <div className="loginButton" onClick={()=>SignIn()}>GO!</div>
                 {/* <div>{logError}</div> */}
             </div>
         </div>

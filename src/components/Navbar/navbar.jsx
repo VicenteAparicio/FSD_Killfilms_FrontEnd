@@ -2,6 +2,11 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import {connect} from 'react-redux';
+// IMPORT ICONS
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+
+
 //IMPORT COMPONENTS
 
 // IMPORT STYLES
@@ -33,6 +38,7 @@ const Navbar = (props) => {
                 <div id="desplegable" >
                     {/* <img id="menu" src={menu} alt="Menu container" onClick=""/> */}
                     <div id="navLinkBox" className="linksContainer" >
+                        <FontAwesomeIcon icon={faCoffee}/>
                         <div className="links">{props.logData?.user.name.toUpperCase()}</div>
                         <div className="links" onClick={()=>Logout()}>LOGOUT</div>
                     </div>

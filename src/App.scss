@@ -6,12 +6,17 @@
 @import 'components/Header/header.scss';
 @import 'components/Navbar/navbar.scss';
 
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+
+
 
 .containerApp{
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
+  background-color: lightblue;
 }
 
 // .App {

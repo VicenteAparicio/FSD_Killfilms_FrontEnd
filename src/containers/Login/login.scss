@@ -9,29 +9,43 @@
 .boxLogin {
     box-sizing: border-box;
     display: flex;
-    width: 80%;
-    max-width: 20em;
-    border: solid .1em $favorito2;
-    padding: 2em;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    width: 20em;
+    height: 20em;
+    border-radius: 100%;
+    border: solid .15em white;
+    
+    &:hover{
+        animation-name: breath;
+        animation-duration: 2s;
+        animation-timing-function: cubic-bezier(0.86, 0.15, 0.27, 1);
+        animation-iteration-count: infinite;
+    }
+
     .labelsLogin{
         margin-top: 1em;
-        width: 100%;
+        color: white;
     }
     .inputsLogin{
         all:unset;
-        padding-left: .5em;
-        box-sizing: border-box;
-        width: 100%;
+        text-align: center;
+        padding: .5em 1em;
+        color:white;
     }
     .loginButton{
         margin-top: 2em;
         cursor: pointer;
-        background-color: $favorito2;
         padding: .5em 1em;
         color: white;
-        &:hover{
-            background-color: red;
-        }
     }
 
+}
+
+@keyframes breath {
+    0% { box-shadow: 0em 0em .25em .25em white;}
+    50% { box-shadow: 0em 0em 1em 1em white;}
+    100% { box-shadow: 0em 0em .25em .25em white;}
 }
