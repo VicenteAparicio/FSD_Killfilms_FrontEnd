@@ -26,7 +26,9 @@ const Admin = (props) => {
 
     return (
         <div className="adminContainer">
-            <div className="admintext">Admin</div>
+            <div className="admintext">
+                
+            </div>
 
             <Visual/>                
         </div>

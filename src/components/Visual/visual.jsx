@@ -1,8 +1,11 @@
 import React from 'react';
-
+import {connect} from 'react-redux';
 import Allmovies from '../Allmovies/allmovies';
 
 const Visual = () => {
+
+
+
 
     return (
         <div className="visualContainer">
@@ -11,4 +14,6 @@ const Visual = () => {
     )
 }
 
-export default Visual;
+export default connect((state)=>(
+    {adminAction: state.adminActions}
+))(Visual);

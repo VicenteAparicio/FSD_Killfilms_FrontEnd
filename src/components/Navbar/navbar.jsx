@@ -1,6 +1,6 @@
 // IMPORT MOTORS
 import React from 'react';
-import { useHistory, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import {connect} from 'react-redux';
 // IMPORT ICONS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -15,25 +15,9 @@ import { LOGOUT } from '../../redux/types';
 
 const Navbar = (props) => {
 
-    let history = useHistory();
-    //FUNCTIONS
-    // const Login = () => {
-    //     history.push('/login');
-    // }
-    // const Home = () => {
-    //     console.log("/")
-    // }
-    // const Register = () => {
-    //     history.push('/register');
-    // }
-
-    // const Logout = () => {
-    //     props.dispatch({type:LOGOUT});
-    // }
 
     const Logout = () => {
-                props.dispatch({type:LOGOUT});
-                history.push('/');
+        props.dispatch({type:LOGOUT});
     }
 
     // const Deploymenu = () => {}
@@ -45,11 +29,10 @@ const Navbar = (props) => {
                 <div className="menuDeploy" >
                     {/* <FontAwesomeIcon className="coffe" icon={faBars} onClick={()=>Deploymenu()}/>  */}
                     <ul id="navLinkBox" className="linksContainer" >
-                    
-                        <FontAwesomeIcon className="coffe" icon={faCoffee}/>
+                        <li><FontAwesomeIcon className="coffe" icon={faCoffee}/></li>
                         
-                        <NavLink className="links" to="#">{props.logData?.user.name.toUpperCase()}</NavLink>
-                        <NavLink className="links" to="#" onClick={()=>Logout()}>LOGOUT</NavLink>
+                        <li><NavLink className="links" to="#">{props.logData?.user.name.toUpperCase()}</NavLink></li>
+                        <li><NavLink className="links" onClick={()=>Logout()} to="/login" >LOGOUT</NavLink></li>
                     </ul>
                 </div>
             </div>

@@ -9,8 +9,10 @@ const Allmovies = (props) => {
     const [movies, setMovies] = useState([]);
 
     useEffect(()=>{
-        Allmovies();
     },[]);
+
+    useEffect(()=>{
+    });
 
     const Allmovies = async () => {
         try{
@@ -20,6 +22,7 @@ const Allmovies = (props) => {
             console.log({message: err.message})
         }
     }
+
     const path = "https://image.tmdb.org/t/p";
     const size ="w200";
 
