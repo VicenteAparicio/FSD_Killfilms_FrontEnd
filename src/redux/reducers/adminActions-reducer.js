@@ -1,4 +1,4 @@
-import {ADMINACTION} from '../types';
+import {ADMINACTION, CLEARADMINACTION} from '../types';
 
 const initialState = {
     action : ''
@@ -9,6 +9,8 @@ const adminActionsReducer = (state = initialState, action) => {
         //Ejemplo de añadido de datos
         case ADMINACTION:
             return action.payload;
+        case CLEARADMINACTION:
+            return initialState;
 
         default : 
             return state

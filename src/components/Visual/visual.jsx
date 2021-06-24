@@ -1,17 +1,37 @@
+// IMPORT MOTORS
 import React from 'react';
 import {connect} from 'react-redux';
-import Allmovies from '../Allmovies/allmovies';
-
-const Visual = () => {
-
-
+// IMPORT COMPONENTS
+import Allmovies from '../Adminsel/Allmovies/allmovies';
+import Createmovies from '../Adminsel/Createmovies/createmovies';
 
 
-    return (
-        <div className="visualContainer">
-            <Allmovies/>
-        </div>
-    )
+
+const Visual = (props) => {
+
+    console.log(props.adminAction)
+    switch (props.adminAction) {
+        case "allmovies":
+            return (
+                <div className="visualContainer">
+                    <Allmovies/>
+                </div>
+            )
+        case "createmovies":
+            return(
+                <div className="visualContainer">
+                    <Createmovies/>
+                </div>
+            )
+        default:
+            return (
+                <div>
+
+                </div>
+            )
+    }
+
+
 }
 
 export default connect((state)=>(

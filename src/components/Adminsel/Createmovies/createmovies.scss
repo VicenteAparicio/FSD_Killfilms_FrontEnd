@@ -1,0 +1,32 @@
+.createmoviesContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 20em;
+}
+
+.createBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.labelCreate{
+    color: white;
+    font-size: 2em;
+}
+
+.inputCreate{
+    all: unset;
+    border-bottom: .2em solid white;
+    margin: 1em 0 2em;
+}
+
+.createButton {
+    background-color: white;
+    padding: .5em 1em;
+    color: black;
+    cursor: pointer;
+}
+

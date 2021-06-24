@@ -5,29 +5,23 @@ import axios from 'axios';
 import Visual from '../../components/Visual/visual';
 //IMPORT STYLES
 import '../../Global.css'
+import { ADMINACTION } from '../../redux/types';
 
 const Admin = (props) => {
 
-    const [movies, setMovies] = useState([]);
-
-    useEffect(()=>{
-        
-    },[]);
-
-    const Allmovies = async () => {
-        try{
-            let res = await axios.get('http://localhost:3005/movies/allmovies', {headers: {'Authorization': `Basic ${props.logData.token}`}});
-            setMovies(res.data)
-        } catch (err) {
-            console.log({message: err.message})
-        }
+    const Allmovies =()=>{
+        props.dispatch({type:ADMINACTION,payload:"allmovies"})
+    }
+    const Createmovies =()=>{
+        props.dispatch({type:ADMINACTION,payload:"createmovies"})
     }
 
 
     return (
         <div className="adminContainer">
-            <div className="admintext">
-                
+            <div className="adminBox">
+                <div className="adminActions" onClick={()=>Allmovies()}>ALL MOVIES</div>
+                <div className="adminActions" onClick={()=>Createmovies()}>CREATE MOVIES</div>
             </div>
 
             <Visual/>                

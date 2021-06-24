@@ -1,14 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import axios from 'axios';
-//IMPORT STYLES
-import '../../Global.css'
 
 const Allmovies = (props) => {
 
     const [movies, setMovies] = useState([]);
 
     useEffect(()=>{
+        Allmovies();
     },[]);
 
     useEffect(()=>{

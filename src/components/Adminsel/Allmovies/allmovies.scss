@@ -8,17 +8,24 @@
 
 .movieBox{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
-    background-color: teal;
-    width: 80%;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 2em 0;
+
 }
 .movieCard {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: tomato;
+    border: .2em solid white;
+    color:white;
     width: 20em;
+    padding: 1em 2em;
+    margin: 0 2em 2em 0;
+    &:last-child{
+        margin: 0;
+    }
 }

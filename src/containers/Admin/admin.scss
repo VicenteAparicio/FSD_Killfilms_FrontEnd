@@ -7,7 +7,22 @@
     background-color: yellow;
 }
 
-.admintext{
-    color:white;
-    background-color: red;
+.adminBox{
+    display: flex;
+    flex-direction: row;
+}
+
+.adminActions {
+    color: black;
+    padding: 2em;
+    background-color: green;
+    cursor: pointer;
+    margin-right: 2em;
+    width: 20em;
+    &:last-child{
+        margin-right: 0;
+    }
+    &:hover{
+        background-color: hotpink;
+    }
 }
