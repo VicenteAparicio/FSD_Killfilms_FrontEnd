@@ -47,9 +47,9 @@ const Navbar = (props) => {
                 <div className="menuDeploy" >
                     {/* <FontAwesomeIcon className="coffe" icon={faBars} onClick={()=>Deploymenu()}/> */}
                     <div id="navLinkBox" className="linksContainer" >
-                        <NavLink className="links" to="/">HOME</NavLink>
-                        <NavLink className="links" to="/login">LOGIN</NavLink>
-                        <NavLink className="links" to="/register">REGISTER</NavLink>
+                        <li><NavLink className="links" to="/">HOME</NavLink></li>
+                        <li><NavLink className="links" to="/login">LOGIN</NavLink></li>
+                        <li><NavLink className="links" to="/register">REGISTER</NavLink></li>
                     </div>
                 </div>
             </div>

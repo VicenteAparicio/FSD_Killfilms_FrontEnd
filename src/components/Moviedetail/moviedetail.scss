@@ -1,0 +1,22 @@
+.movieDetailBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.movieDetailCard{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 40em;
+}
+
+.movieData{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    margin-left: 2em;
+}
+

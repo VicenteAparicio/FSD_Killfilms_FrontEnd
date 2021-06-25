@@ -1,6 +1,5 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
-import axios from 'axios';
 // IMPORT COMPONENTS
 import Visual from '../../components/Visual/visual';
 //IMPORT STYLES
@@ -9,19 +8,30 @@ import { ADMINACTION } from '../../redux/types';
 
 const Admin = (props) => {
 
-    const Allmovies =()=>{
-        props.dispatch({type:ADMINACTION,payload:"allmovies"})
-    }
-    const Createmovies =()=>{
-        props.dispatch({type:ADMINACTION,payload:"createmovies"})
+    const AdminFn = (arg) => {
+        switch (arg) {
+            case "allmovies":
+                props.dispatch({type:ADMINACTION,payload:"allmovies"})
+                break;
+            case "allusers":
+                props.dispatch({type:ADMINACTION,payload:"allusers"})
+                break;
+            case "createmovies":
+                props.dispatch({type:ADMINACTION,payload:"createmovies"})
+                break;
+            default:
+                break;
+
+        }
     }
 
 
     return (
         <div className="adminContainer">
             <div className="adminBox">
-                <div className="adminActions" onClick={()=>Allmovies()}>ALL MOVIES</div>
-                <div className="adminActions" onClick={()=>Createmovies()}>CREATE MOVIES</div>
+                <div className="adminActions" onClick={()=>AdminFn("allmovies")}>ALL MOVIES</div>
+                <div className="adminActions" onClick={()=>AdminFn("allusers")}>ALL USERS</div>
+                <div className="adminActions" onClick={()=>AdminFn("createmovies")}>CREATE MOVIES</div>
             </div>
 
             <Visual/>                

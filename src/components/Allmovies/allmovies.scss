@@ -10,9 +10,11 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
     padding: 2em 0;
+    
+
 
 }
 .movieCard {
@@ -20,12 +22,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: .2em solid white;
+    // border: .2em solid white;
     color:white;
-    width: 20em;
-    padding: 1em 2em;
-    margin: 0 2em 2em 0;
+    margin: 0 2em 1em 0;
     &:last-child{
         margin: 0;
     }
+    cursor: pointer;
 }

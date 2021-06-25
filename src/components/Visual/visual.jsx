@@ -2,8 +2,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 // IMPORT COMPONENTS
-import Allmovies from '../Adminsel/Allmovies/allmovies';
+import Allmovies from '../Allmovies/allmovies';
 import Createmovies from '../Adminsel/Createmovies/createmovies';
+import Allusers from '../Adminsel/Allusers/allusers';
 
 
 
@@ -21,6 +22,12 @@ const Visual = (props) => {
             return(
                 <div className="visualContainer">
                     <Createmovies/>
+                </div>
+            )
+        case "allusers":
+            return(
+                <div className="visualContainer">
+                    <Allusers/>
                 </div>
             )
         default:

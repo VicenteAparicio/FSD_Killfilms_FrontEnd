@@ -5,13 +5,15 @@ import Login from './containers/Login/login';
 import Home from './containers/Home/home';
 import Register from './containers/Register/register';
 import Client from './containers/Client/client';
-import Header from './components/Header/header';
+import Admin from './containers/Admin/admin';
 // IMPORT COMPONENTS
-
+import Header from './components/Header/header';
+import Moviedetail from './components/Moviedetail/moviedetail';
 // IMPORT STYLES
 import './Global.css';
 import './App.scss';
-import admin from './containers/Admin/admin';
+
+
 
 
 function App() {
@@ -25,7 +27,8 @@ function App() {
         <Route path="/login" exact component={Login}/>
         <Route path="/register" exact component={Register}/>
         <Route path="/client" exact component={Client}/>
-        <Route path="/admin" exact component={admin}/>
+        <Route path="/admin" exact component={Admin}/>
+        <Route path="/moviedetails" exact component={Moviedetail}/>
 
       </Switch>
     </BrowserRouter>

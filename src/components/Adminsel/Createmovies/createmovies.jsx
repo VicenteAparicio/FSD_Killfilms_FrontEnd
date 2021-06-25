@@ -25,28 +25,28 @@ const Createmovies = (props) => {
         }
 
         try{
-            let res = await axios.post('http://localhost:3005/movies/createmovie', body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
+            axios.post('http://localhost:3005/movies/createmovie', body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
             alert("Película creada")
         } catch (err) {
             console.log({message: err.message})
             alert("No has puesto bien el nombre")
         }
-        
     }
 
 
+    if (props.logData.user?.isAdmin){
+        return (
+            <div className="createmoviesContainer">
 
-    return (
-        <div className="createmoviesContainer">
-                    
-                    <div className="createBox">
-                        <label className="labelCreate" for="title">CREATE MOVIE</label>
-                        <input className="inputCreate" name="title" onChange={updateTitle} placeholder="Title"></input>
-                        <div className="createButton" onClick={()=>Createmovie()}>ACCEPT</div>
-                    </div>
-  
+                <div className="createBox">
+                    <label className="labelCreate" for="title">CREATE MOVIE</label>
+                    <input className="inputCreate" name="title" onChange={updateTitle} placeholder="Title"></input>
+                    <div className="createButton" onClick={()=>Createmovie()}>ACCEPT</div>
                 </div>
-    )
+        
+            </div>
+        )
+    }
 }
 
 export default connect((state)=>(
