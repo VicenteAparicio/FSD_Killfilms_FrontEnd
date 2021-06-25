@@ -34,12 +34,12 @@ const Allmovies = (props) => {
                             
                             <div className="movieCard" key={index}>
                                 <img src={`${path}/${size}${movie.poster_path}`} alt={movie.title}/>
-                                <div className="movieData">
+                                {/* <div className="movieData">
                                     <div className="movieName">{movie.title}</div>
                                     <div className="movieInfo">ID: {movie.director}</div>
                                     <div className="movieInfo">Coach: {movie.actors}</div>
                                     <div className="movieInfo">Date: {movie.overview}</div>
-                                </div>
+                                </div> */}
                             </div>
                         ))}
                     </div>
