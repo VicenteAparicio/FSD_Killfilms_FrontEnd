@@ -26,6 +26,7 @@ const Moviedetail = (props) => {
                         
                             <div className="movieName">{props.detail.title}</div>
                             <div className="movieInfo">Director: {props.detail.director}</div>
+                            <div className="movieInfo">Genre: {props.detail.genre}</div>
                             <div className="movieInfo">Actors: {props.detail.actors.split(',').join(', ')}</div>        
                             <div className="movieInfo">Overview: {props.detail.overview}</div>
                         </div>

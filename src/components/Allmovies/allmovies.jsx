@@ -8,7 +8,7 @@ import { ADMINACTION } from '../../redux/types';
 
 const Allmovies = (props) => {
 
-
+    const [genre, setGenre] = useState({options:''});
     const [show, setShow] = useState('');
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -18,6 +18,20 @@ const Allmovies = (props) => {
     useEffect(()=>{
         setLoading(true);
         allMovies();
+        userControl();
+    },[]);
+
+    useEffect(() => {
+        setFilteredMovies(
+            movies.filter((movie) =>
+                movie.title.toLowerCase().includes(search.toLowerCase())
+            )
+        );
+
+    }, [search, movies]);
+
+    
+    const userControl = () => {
         switch (props.logData.user.isAdmin){
             case true:
                 setShow("movieButton")
@@ -29,15 +43,15 @@ const Allmovies = (props) => {
                 setShow("")
                 break;
         }
-    },[]);
-
-    useEffect(() => {
+    }
+    
+    const updateGenre = (e) => {
         setFilteredMovies(
-          movies.filter((movie) =>
-            movie.title.toLowerCase().includes(search.toLowerCase())
-          )
+            movies.filter((movie)=>
+                movie.genre.toLowerCase().includes(e.target.value)
+            )
         );
-    }, [search, movies]);
+    }
 
 
 
@@ -57,7 +71,6 @@ const Allmovies = (props) => {
     }
 
     const deleteMovie = async (title) => {
-        
         try{
             let body = {
                 "title": title
@@ -74,7 +87,6 @@ const Allmovies = (props) => {
         if (arg.length>2){
             setSearch(arg)
         } else {
-
             setSearch('');
         }
     }
@@ -90,6 +102,16 @@ const Allmovies = (props) => {
         <div className="allmoviesContainer">
             <div className="searchMovieContainer">
                 <input className="inputClientAction" type="text" placeholder="Search movie" onChange={(e)=>setSearcher(e.target.value)}></input>
+                <select name="options" className=" selectinputs" onChange={updateGenre}>
+                    <option value="">ALL</option>
+                    <option value="adventure">ADVENTURE</option>
+                    <option value="action">ACTION</option>
+                    <option value="fantasy">FANTASY</option>
+                    <option value="science fiction">SCI-FI</option>
+                    <option value="horror">HORROR</option>
+                    <option value="crime">CRIME</option>
+                    <option value="romance">ROMANCE</option>
+                </select>
             </div>
             {/* <div className="scrollMovies" onClick={()=>Scrollmovies("-")}>-</div> */}
             <div className="moviesContainer">

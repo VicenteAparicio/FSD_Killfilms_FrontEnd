@@ -1,23 +1,22 @@
 .clientContainer{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items:flex-start;
 }
 
 .clientBox {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: grey;
     width: 100%;
     padding: 2em 0;
 }
 
 .clientActions {
-    color: white;
+    color: black;
     padding: 2em;
-    background-color: black;
+    background-color: white;
     cursor: pointer;
     margin-right: 2em;
     width: 10em;
@@ -25,8 +24,8 @@
         margin-right: 0;
     }
     &:hover{
-        color: black;
-        background-color: white;
+        color: white;
+        background-color: black;
     }
 }
 
