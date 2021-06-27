@@ -3,14 +3,13 @@ import React from 'react';
 import {connect} from 'react-redux';
 // IMPORT COMPONENTS
 import Allmovies from '../Allmovies/allmovies';
+import Moviedetail from '../Moviedetail/moviedetail';
 import Createmovies from '../Adminsel/Createmovies/createmovies';
 import Allusers from '../Adminsel/Allusers/allusers';
 
 
 
 const Visual = (props) => {
-
-    console.log(props.adminAction)
     switch (props.adminAction) {
         case "allmovies":
             return (
@@ -28,6 +27,12 @@ const Visual = (props) => {
             return(
                 <div className="visualContainer">
                     <Allusers/>
+                </div>
+            )
+        case "moviedetail":
+            return(
+                <div className="visualContainer">
+                    <Moviedetail/>
                 </div>
             )
         default:

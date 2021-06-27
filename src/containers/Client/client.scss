@@ -1,6 +1,33 @@
-.containerProfile{
+.clientContainer{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
+.clientBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+    width: 100%;
+    padding: 2em 0;
+}
+
+.clientActions {
+    color: white;
+    padding: 2em;
+    background-color: black;
+    cursor: pointer;
+    margin-right: 2em;
+    width: 10em;
+    &:last-child{
+        margin-right: 0;
+    }
+    &:hover{
+        color: black;
+        background-color: white;
+    }
+}
+
+

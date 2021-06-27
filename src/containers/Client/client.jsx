@@ -1,53 +1,45 @@
-import React, {useEffect, useState} from 'react';
+import React from "react";
+
 import {connect} from 'react-redux';
-import axios from 'axios';
+// IMPORT COMPONENTS
+import Visual from '../../components/Visual/visual';
 //IMPORT STYLES
 import '../../Global.css'
+import { ADMINACTION } from '../../redux/types';
 
 const Client = (props) => {
 
-    const [movies, setMovies] = useState([]);
+    
 
-    useEffect(()=>{
-        Allmovies();
-    },[]);
+    const clientFn = (arg) => {
+        switch (arg) {
+            case "allmovies":
+                props.dispatch({type:ADMINACTION,payload:"allmovies"})
+                break;
+            // case "allusers":
+            //     props.dispatch({type:ADMINACTION,payload:"allusers"})
+            //     break;
+            // case "createmovies":
+            //     props.dispatch({type:ADMINACTION,payload:"createmovies"})
+            //     break;
+            default:
+                break;
 
-    useEffect(()=>{
-        Allmovies();
-    });
-
-    const Allmovies = async () => {
-        try{
-            let res = await axios.get('http://localhost:3005/movies/allmovies', {headers: {'Authorization': `Basic ${props.logData.token}`}});
-            setMovies(res.data)
-        } catch (err) {
-            console.log({message: err.message})
         }
     }
-    const path = "https://image.tmdb.org/t/p";
-    const size ="w200";
 
 
     return (
-        <div className="profileContainer">
-                    
-                    <div className="movieBox">
-                        {movies.map((movie, index)=>(
-                            
-                            <div className="movieCard" key={index}>
-                                <div className="movieData">
-                                    <img src={`${path}/${size}${movie.poster_path}`} alt={movie.title}/>
-                                    {console.log("esto es lo que me lleg", movie)}
-                                    <div className="movieName">{movie.title}</div>
-                                    <div className="movieInfo">ID: {movie.director}</div>
-                                    <div className="movieInfo">Coach: {movie.actors}</div>
-                                    <div className="movieInfo">Date: {movie.overview}</div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-  
-                </div>
+        <div className="clientContainer">
+            <div className="clientBox">
+                <div className="clientActions" onClick={()=>clientFn("allmovies")}>ALL MOVIES</div>
+                {/* <div className="adminActions" onClick={()=>AdminFn("allusers")}>ALL USERS</div>
+                <div className="adminActions" onClick={()=>AdminFn("createmovies")}>CREATE MOVIES</div> */}
+                
+            </div>
+
+            <Visual/>                
+        </div>
     )
 }
 

@@ -10,7 +10,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 40em;
+    width: 60em;
 }
 
 .movieData{
@@ -20,3 +20,7 @@
     margin-left: 2em;
 }
 
+.movieName{
+    font-size: 1.5em;
+    margin-bottom: .5em;
+}

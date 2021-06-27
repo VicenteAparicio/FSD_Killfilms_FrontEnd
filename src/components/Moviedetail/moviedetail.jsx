@@ -1,17 +1,12 @@
-import React, {useEffect, useState} from 'react';
+// IMPORT MOTORS
+import React from 'react';
 import {connect} from 'react-redux';
 
 
 const Moviedetail = (props) => {
 
-    const [movies, setMovies] = useState([]);
+    // const [movies, setMovies] = useState([]);
 
-    useEffect(()=>{
-
-    },[]);
-
-    useEffect(()=>{
-    });
 
 
     const path = "https://image.tmdb.org/t/p";
@@ -23,17 +18,22 @@ const Moviedetail = (props) => {
                         
                 <div className="movieDetailBox">
                     
-                        <div className="movieDetailCard">
-                            <img src={`${path}/${size}${props.detail.poster_path}`} alt={props.detail.title}/>
-                            <div className="movieData">
-                                <div className="movieName">{props.detail.title}</div>
-                                <div className="movieInfo">{props.detail.director}</div>
-                                <div className="movieInfo">{props.detail.actors}</div>
-                                <div className="movieInfo">{props.detail.overview}</div>
-                            </div>
+                    <div className="movieDetailCard">
+                        
+                        <img src={`${path}/${size}${props.detail.poster_path}`} alt={props.detail.title}/>
+                        
+                        <div className="movieData">
+                        
+                            <div className="movieName">{props.detail.title}</div>
+                            <div className="movieInfo">Director: {props.detail.director}</div>
+                            <div className="movieInfo">Actors: {props.detail.actors.split(',').join(', ')}</div>        
+                            <div className="movieInfo">Overview: {props.detail.overview}</div>
                         </div>
-                    
+
+                    </div>
+                
                 </div>
+
             </div>
         )
     }

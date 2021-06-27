@@ -24,13 +24,21 @@ const Createmovies = (props) => {
             "title": titleMovie.title,
         }
 
-        try{
-            axios.post('http://localhost:3005/movies/createmovie', body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
-            alert("Película creada")
-        } catch (err) {
-            console.log({message: err.message})
-            alert("No has puesto bien el nombre")
-        }
+        axios
+            .post('http://localhost:3005/movies/createmovie', body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
+        
+            .then ((res)=>{
+                if(typeof res.data == "string"){
+                    alert(res.data)
+                } else if (typeof res.data == "object"){
+                    alert("Película creada")
+                }
+            })
+            
+            .catch ((err)=> {
+            console.log({message: err.message});
+            alert("No has puesto bien el nombre o no se puede agregar esta película a la biblioteca, inténtalo de nuevo");
+            })
     }
 
 

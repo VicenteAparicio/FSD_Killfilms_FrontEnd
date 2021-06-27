@@ -4,4 +4,3 @@ export const ADMINACTION = 'adminaction';
 export const CLEARADMINACTION = 'clearadminaction';
 export const SELECTMOVIE = 'selectmovie';
 
-

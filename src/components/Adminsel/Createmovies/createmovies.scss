@@ -10,6 +10,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: white;
 }
 
 .labelCreate{
@@ -18,6 +19,7 @@
 }
 
 .inputCreate{
+    
     all: unset;
     border-bottom: .2em solid white;
     margin: 1em 0 2em;

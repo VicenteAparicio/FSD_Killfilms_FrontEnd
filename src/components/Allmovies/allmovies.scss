@@ -1,6 +1,6 @@
 .allmoviesContainer {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -11,22 +11,38 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    // width: 50%;
+    // overflow: hidden;
+    flex-wrap: wrap;
     padding: 2em 0;
-    
-
-
+    margin: 0 2em;
 }
+
+
 .movieCard {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     // border: .2em solid white;
+    filter: brightness(90%);
     color:white;
-    margin: 0 2em 1em 0;
+    margin: 0 1em 1em 0;
+    transition: .5s cubic-bezier(0.165, 0.84, 0.44, 1);
     &:last-child{
         margin: 0;
     }
     cursor: pointer;
+    &:hover {
+        transition: .5s cubic-bezier(0, 0.1, 0.2, 1);
+        filter: brightness(110%);
+        transform: scale(110%);
+    }
+}
+
+.searchMovieContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+
 }
