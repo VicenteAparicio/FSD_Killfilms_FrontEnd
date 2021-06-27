@@ -6,25 +6,30 @@
     width: 100%;
 }
 
-.movieBox{
+.moviesContainer{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    // width: 50%;
-    // overflow: hidden;
     flex-wrap: wrap;
     padding: 2em 0;
     margin: 0 2em;
 }
 
+.movieBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+    
+}
 
 .movieCard {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    // border: .2em solid white;
     filter: brightness(90%);
     color:white;
     margin: 0 1em 1em 0;
@@ -45,4 +50,16 @@
     flex-direction: column;
     margin-top: 2em;
 
+}
+
+.movieButton{
+    color:white;
+    cursor: pointer;
+    &:hover{
+        background-color: white;
+        color: black;
+    }
+}
+.hideButton{
+    display: none;
 }

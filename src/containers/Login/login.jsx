@@ -16,7 +16,7 @@ const Login = (props) => {
     // Hooks
     const [credentials, setCredentials] = useState({email:'',password:'',options:'user'});
 
-    // const [logError, setLogError] = useState(['']);
+    const [msError, setMsError] = useState(['']);
 
     // Handler
     const updateCredentials = (e) => {
@@ -26,7 +26,13 @@ const Login = (props) => {
     // FUNCION LOGUEAR
     const SignIn = async () => {
 
-        //A continuación genearmos el body de datos
+        // Validación email
+    //     if (! /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(credentials.email) ) {
+    //         setMsError('Introduce un formato de email válido');
+    //         return;
+    //    }
+
+        // A continuación genearmos el body de datos
         let body = {
             email: credentials.email.toLocaleLowerCase(),
             password: credentials.password,
@@ -45,7 +51,7 @@ const Login = (props) => {
                 }
             })
             .catch((error)=>{
-                // setLogError(error);
+                // alert(error)
 
             });  
     }

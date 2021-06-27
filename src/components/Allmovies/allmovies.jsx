@@ -9,6 +9,7 @@ import { ADMINACTION } from '../../redux/types';
 const Allmovies = (props) => {
 
 
+    const [show, setShow] = useState('');
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
     const [search, setSearch] = useState("");
@@ -16,7 +17,18 @@ const Allmovies = (props) => {
 
     useEffect(()=>{
         setLoading(true);
-        Allmovies();
+        allMovies();
+        switch (props.logData.user.isAdmin){
+            case true:
+                setShow("movieButton")
+                break;
+            case false:
+                setShow("hidebutton")
+                break;
+            default:
+                setShow("")
+                break;
+        }
     },[]);
 
     useEffect(() => {
@@ -27,12 +39,14 @@ const Allmovies = (props) => {
         );
     }, [search, movies]);
 
+
+
     const selectMovie = (movie) => {
         props.dispatch({type:SELECTMOVIE,payload:movie});
         props.dispatch({type:ADMINACTION,payload:"moviedetail"})
     }
 
-    const Allmovies = async () => {
+    const allMovies = async () => {
         try{
             let res = await axios.get('http://localhost:3005/movies/allmovies', {headers: {'Authorization': `Basic ${props.logData.token}`}});
             setMovies(res.data);
@@ -40,6 +54,20 @@ const Allmovies = (props) => {
         } catch (err) {
             console.log({message: err.message})
         }
+    }
+
+    const deleteMovie = async (title) => {
+        
+        try{
+            let body = {
+                "title": title
+            }
+            await axios.post('http://localhost:3005/movies/deletemovie', body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
+            alert("La película " +  title + " ha sido eliminada")
+        } catch (err) {
+            console.log({message: err.message})
+        }
+        allMovies();
     }
 
     const setSearcher = (arg) => {
@@ -58,23 +86,22 @@ const Allmovies = (props) => {
         return <p>"Loading movies"</p>
     }
 
-    
-
-
     return (
         <div className="allmoviesContainer">
             <div className="searchMovieContainer">
                 <input className="inputClientAction" type="text" placeholder="Search movie" onChange={(e)=>setSearcher(e.target.value)}></input>
             </div>
             {/* <div className="scrollMovies" onClick={()=>Scrollmovies("-")}>-</div> */}
-            <div className="movieBox">
+            <div className="moviesContainer">
                 {filteredMovies.map((movie, index)=>(
-                    
+                    <div className="movieBox">
                     <div className="movieCard" key={index}>
                         <img src={`${path}/${size}${movie.poster_path}`} alt={movie.title} onClick={()=>selectMovie(movie)}/>
-
+                    </div>
+                    <div className={show} onClick={()=>deleteMovie(movie.title)}>DELETE</div>
                     </div>
                 ))}
+                
             </div>
             {/* <div className="scrollMovies" onClick={()=>Scrollmovies("+")}>+</div> */}
   
