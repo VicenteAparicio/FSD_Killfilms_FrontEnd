@@ -1,5 +1,5 @@
 // IMPORT MOTORS
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import {connect} from 'react-redux';
 // IMPORT ICONS
@@ -16,24 +16,39 @@ import { CLEARADMINACTION } from '../../redux/types';
 
 const Navbar = (props) => {
 
-
+    const [destination, setDestination] = useState('/login');
+    
     const Logout = () => {
         props.dispatch({type:LOGOUT});
         props.dispatch({type:CLEARADMINACTION})
     }
 
-    // const Deploymenu = () => {}
+    useEffect(()=>{
+        switch (props.logData.user.isAdmin){
+            case true:
+                setDestination("/admin")
+                break;
+            case false:
+                setDestination("/client")
+                break;
+            default:
+                setDestination("/")
+                break;
+        }
+    },[]);
+
+
+
 
     if (props.logData.token){
-
+        
         return (
             <div id="navbar">
                 <div className="menuDeploy" >
                     {/* <FontAwesomeIcon className="coffe" icon={faBars} onClick={()=>Deploymenu()}/>  */}
                     <ul id="navLinkBox" className="linksContainer" >
-                        <li><FontAwesomeIcon className="coffe" icon={faCoffee}/></li>
                         
-                        <li><NavLink className="links" to="#">{props.logData?.user.name.toUpperCase()}</NavLink></li>
+                        <li><NavLink className="links" to={destination}>{props.logData?.user.name.toUpperCase()}</NavLink></li>
                         <li><NavLink className="links" onClick={()=>Logout()} to="/login" >LOGOUT</NavLink></li>
                     </ul>
                 </div>
