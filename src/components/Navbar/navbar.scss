@@ -26,6 +26,7 @@
     z-index: 3;
 
     li{
+        all: unset;
         margin-left: 2em;
         &:first-child{
             margin-left: 0;

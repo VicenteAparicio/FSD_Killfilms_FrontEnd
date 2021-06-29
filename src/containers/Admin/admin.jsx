@@ -8,13 +8,16 @@ import { ADMINACTION } from '../../redux/types';
 
 const Admin = (props) => {
 
-    const AdminFn = (arg) => {
+    const adminFn = (arg) => {
         switch (arg) {
             case "allmovies":
                 props.dispatch({type:ADMINACTION,payload:"allmovies"})
                 break;
             case "allusers":
                 props.dispatch({type:ADMINACTION,payload:"allusers"})
+                break;
+            case "allorders":
+                props.dispatch({type:ADMINACTION,payload:"allorders"})
                 break;
             case "createmovies":
                 props.dispatch({type:ADMINACTION,payload:"createmovies"})
@@ -29,9 +32,10 @@ const Admin = (props) => {
     return (
         <div className="adminContainer">
             <div className="adminBox">
-                <div className="adminActions" onClick={()=>AdminFn("allmovies")}>ALL MOVIES</div>
-                <div className="adminActions" onClick={()=>AdminFn("allusers")}>ALL USERS</div>
-                <div className="adminActions" onClick={()=>AdminFn("createmovies")}>CREATE MOVIES</div>
+                <div className="adminActions" onClick={()=>adminFn("allmovies")}>MOVIES</div>
+                <div className="adminActions" onClick={()=>adminFn("allusers")}>USERS</div>
+                <div className="adminActions" onClick={()=>adminFn("orders")}>ORDERS</div>
+                <div className="adminActions" onClick={()=>adminFn("createmovies")}>CREATE MOVIES</div>
             </div>
 
             <Visual/>                

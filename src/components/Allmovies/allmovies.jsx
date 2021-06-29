@@ -8,7 +8,7 @@ import { ADMINACTION } from '../../redux/types';
 
 const Allmovies = (props) => {
 
-    const [genre, setGenre] = useState({options:''});
+    // const [genre, setGenre] = useState({options:''});
     const [show, setShow] = useState('');
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -27,8 +27,24 @@ const Allmovies = (props) => {
                 movie.title.toLowerCase().includes(search.toLowerCase())
             )
         );
-
+            updateActors();
     }, [search, movies]);
+
+    const updateGenre = (e) => {
+        setFilteredMovies(
+            movies.filter((movie)=>
+                movie.genre.toLowerCase().includes(e.target.value)
+            )
+        );
+    }
+
+    const updateActors = () => {
+        setFilteredMovies(
+            movies.filter((movie)=>
+                movie.actors.toLowerCase().includes(search.toLowerCase())
+            )
+        );
+    }
 
     
     const userControl = () => {
@@ -45,13 +61,7 @@ const Allmovies = (props) => {
         }
     }
     
-    const updateGenre = (e) => {
-        setFilteredMovies(
-            movies.filter((movie)=>
-                movie.genre.toLowerCase().includes(e.target.value)
-            )
-        );
-    }
+    
 
 
 
@@ -83,13 +93,23 @@ const Allmovies = (props) => {
         allMovies();
     }
 
-    const setSearcher = (arg) => {
+    const searchByTitle = (arg) => {
         if (arg.length>2){
             setSearch(arg)
         } else {
             setSearch('');
         }
     }
+
+    const searchByActor = (arg) => {
+        if (arg.length>2){
+            setSearch(arg)
+        } else {
+            setSearch('');
+        }
+    }
+
+
 
     const path = "https://image.tmdb.org/t/p";
     const size ="w200";
@@ -101,7 +121,7 @@ const Allmovies = (props) => {
     return (
         <div className="allmoviesContainer">
             <div className="searchMovieContainer">
-                <input className="inputClientAction" type="text" placeholder="Search movie" onChange={(e)=>setSearcher(e.target.value)}></input>
+                <input className="searchBar" type="text" placeholder="Search movie" onChange={(e)=>searchByTitle(e.target.value)}></input>
                 <select name="options" className=" selectinputs" onChange={updateGenre}>
                     <option value="">ALL</option>
                     <option value="adventure">ADVENTURE</option>
@@ -112,6 +132,8 @@ const Allmovies = (props) => {
                     <option value="crime">CRIME</option>
                     <option value="romance">ROMANCE</option>
                 </select>
+
+                <input className="searchBar" type="text" placeholder="Actor" onChange={(e)=>searchByActor(e.target.value)}></input>
             </div>
             {/* <div className="scrollMovies" onClick={()=>Scrollmovies("-")}>-</div> */}
             <div className="moviesContainer">

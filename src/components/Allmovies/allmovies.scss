@@ -47,9 +47,12 @@
 
 .searchMovieContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin-top: 2em;
+}
 
+.searchBar{
+    margin-right: 1em;
 }
 
 .movieButton{
