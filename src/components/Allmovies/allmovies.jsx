@@ -13,6 +13,7 @@ const Allmovies = (props) => {
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
     const [search, setSearch] = useState("");
+    const [searchActor, setSearchActor] = useState("");
     const [filteredMovies, setFilteredMovies] = useState([]);
 
     useEffect(()=>{
@@ -27,7 +28,7 @@ const Allmovies = (props) => {
                 movie.title.toLowerCase().includes(search.toLowerCase())
             )
         );
-            updateActors();
+
     }, [search, movies]);
 
     const updateGenre = (e) => {
@@ -41,7 +42,7 @@ const Allmovies = (props) => {
     const updateActors = () => {
         setFilteredMovies(
             movies.filter((movie)=>
-                movie.actors.toLowerCase().includes(search.toLowerCase())
+                movie.actors.toLowerCase().includes(searchActor.toLowerCase())
             )
         );
     }
@@ -93,23 +94,27 @@ const Allmovies = (props) => {
         allMovies();
     }
 
-    const searchByTitle = (arg) => {
-        if (arg.length>2){
-            setSearch(arg)
-        } else {
-            setSearch('');
+    const searcher = (option, arg) => {
+        switch(option){
+            case 'titleSearch':
+                if (arg.length>2){
+                    setSearch(arg)
+                } else {
+                    setSearch('');
+                }
+                break;
+            case 'actorSearch':
+                if (arg.length>2){
+                    setSearchActor(arg)
+                } else {
+                    setSearchActor('');
+                }
+                updateActors();
+                break;
+            default:
+                break;
         }
     }
-
-    const searchByActor = (arg) => {
-        if (arg.length>2){
-            setSearch(arg)
-        } else {
-            setSearch('');
-        }
-    }
-
-
 
     const path = "https://image.tmdb.org/t/p";
     const size ="w200";
@@ -120,10 +125,14 @@ const Allmovies = (props) => {
 
     return (
         <div className="allmoviesContainer">
+
             <div className="searchMovieContainer">
-                <input className="searchBar" type="text" placeholder="Search movie" onChange={(e)=>searchByTitle(e.target.value)}></input>
-                <select name="options" className=" selectinputs" onChange={updateGenre}>
-                    <option value="">ALL</option>
+                <input className="searchBar" name="titleSearch" type="text" placeholder="Search movie" onChange={(e)=>searcher(e.target.name, e.target.value)}></input>
+
+                <input className="searchBar" name="actorSearch" type="text" placeholder="Actor" onChange={(e)=>searcher(e.target.name, e.target.value)}></input>
+
+                <select name="options" className="searchBar selectinputs" onChange={updateGenre}>
+                    <option value="">Genre</option>
                     <option value="adventure">ADVENTURE</option>
                     <option value="action">ACTION</option>
                     <option value="fantasy">FANTASY</option>
@@ -131,11 +140,9 @@ const Allmovies = (props) => {
                     <option value="horror">HORROR</option>
                     <option value="crime">CRIME</option>
                     <option value="romance">ROMANCE</option>
-                </select>
-
-                <input className="searchBar" type="text" placeholder="Actor" onChange={(e)=>searchByActor(e.target.value)}></input>
+                </select>    
             </div>
-            {/* <div className="scrollMovies" onClick={()=>Scrollmovies("-")}>-</div> */}
+
             <div className="moviesContainer">
                 {filteredMovies.map((movie, index)=>(
                     <div className="movieBox">
