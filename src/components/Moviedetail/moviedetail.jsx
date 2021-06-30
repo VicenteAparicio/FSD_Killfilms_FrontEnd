@@ -1,22 +1,25 @@
 // IMPORT MOTORS
 import React from 'react';
 import {connect} from 'react-redux';
+// IMPORT ACTIONS
+import { ADMINACTION } from '../../redux/types';
 
 
 const Moviedetail = (props) => {
 
-    // const [movies, setMovies] = useState([]);
-
-
-
     const path = "https://image.tmdb.org/t/p";
     const size ="w200";
+    const size2 ="w400";
+
+    const back = () => {
+        props.dispatch({type:ADMINACTION,payload:"allmovies"})
+    }
 
     if(props.logData.user){
         return (
-            <div className="detailmovieContainer">
+            <div className="detailMovieContainer">
                         
-                <div className="movieDetailBox">
+                <div className="movieDetailBox" style={{backgroundImage: `url(${path}/${size2}${props.detail.poster_path})`}}>
                     
                     <div className="movieDetailCard">
                         
@@ -34,6 +37,8 @@ const Moviedetail = (props) => {
                     </div>
                 
                 </div>
+
+                <div className="buttonDetails" onClick={()=>back()}>BACK</div>
 
             </div>
         )

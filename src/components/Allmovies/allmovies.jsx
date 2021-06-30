@@ -5,6 +5,9 @@ import axios from 'axios';
 // IMPORT ACTIONS
 import { SELECTMOVIE } from '../../redux/types';
 import { ADMINACTION } from '../../redux/types';
+// IMPORT ICONS
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMinusSquare } from '@fortawesome/free-solid-svg-icons';
 
 const Allmovies = (props) => {
 
@@ -131,15 +134,15 @@ const Allmovies = (props) => {
 
                 <input className="searchBar" name="actorSearch" type="text" placeholder="Actor" onChange={(e)=>searcher(e.target.name, e.target.value)}></input>
 
-                <select name="options" className="searchBar selectinputs" onChange={updateGenre}>
-                    <option value="">Genre</option>
-                    <option value="adventure">ADVENTURE</option>
-                    <option value="action">ACTION</option>
-                    <option value="fantasy">FANTASY</option>
-                    <option value="science fiction">SCI-FI</option>
-                    <option value="horror">HORROR</option>
-                    <option value="crime">CRIME</option>
-                    <option value="romance">ROMANCE</option>
+                <select name="options" className="searchBar" onChange={updateGenre}>
+                    <option className="selectOptions" value="">Genre</option>
+                    <option className="selectOptions" value="adventure">ADVENTURE</option>
+                    <option className="selectOptions" value="action">ACTION</option>
+                    <option className="selectOptions" value="fantasy">FANTASY</option>
+                    <option className="selectOptions" value="science fiction">SCI-FI</option>
+                    <option className="selectOptions" value="horror">HORROR</option>
+                    <option className="selectOptions" value="crime">CRIME</option>
+                    <option className="selectOptions" value="romance">ROMANCE</option>
                 </select>    
             </div>
 
@@ -147,9 +150,10 @@ const Allmovies = (props) => {
                 {filteredMovies.map((movie, index)=>(
                     <div className="movieBox">
                     <div className="movieCard" key={index}>
-                        <img src={`${path}/${size}${movie.poster_path}`} alt={movie.title} onClick={()=>selectMovie(movie)}/>
+                        {console.log(index)}
+                        <img className="moviePoster" src={`${path}/${size}${movie.poster_path}`} alt={movie.title} onClick={()=>selectMovie(movie)}/>
                     </div>
-                    <div className={show} onClick={()=>deleteMovie(movie.title)}>DELETE</div>
+                    <div className={show} onClick={()=>deleteMovie(movie.title)}><FontAwesomeIcon className="faIconsY" icon={faMinusSquare}/></div>
                     </div>
                 ))}
                 

@@ -1,8 +1,22 @@
-.movieDetailBox{
+.detailMovieContainer{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+}
+.movieDetailBox{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-position: center;
+    background-size: cover;
+
+    width: 60%;
+    height: 30em;
 }
 
 .movieDetailCard{
@@ -10,7 +24,10 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 60em;
+    background-color: black;
+    opacity: .88;
+    padding: 2em;
+    width: 80%;
 }
 
 .movieData{
@@ -23,4 +40,9 @@
 .movieName{
     font-size: 1.5em;
     margin-bottom: .5em;
+}
+
+.buttonDetails{
+    color: white;
+    margin: 2em 0 0 0;
 }

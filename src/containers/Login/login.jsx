@@ -8,6 +8,10 @@ import axios from 'axios';
 import {LOGIN} from '../../redux/types';
 // IMPORT STYLES
 import '../../Global.css';
+// IMPORT ICONS
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
+import { faPaperclip } from '@fortawesome/free-solid-svg-icons';
 
 const Login = (props) => {
 
@@ -70,7 +74,7 @@ const Login = (props) => {
                 <input className="inputsLogin" type="password" name="password" onChange={updateCredentials} placeholder="Password"></input>
                 
 
-                <div className="loginButton" onClick={()=>SignIn()}>GO!</div>
+                <div className="loginButton" onClick={()=>SignIn()}><FontAwesomeIcon className="faLogin" icon={faPaperPlane}/></div>
                 {/* <div>{logError}</div> */}
             </div>
         </div>
