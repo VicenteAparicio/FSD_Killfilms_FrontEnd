@@ -11,7 +11,6 @@ import '../../Global.css';
 // IMPORT ICONS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
-import { faPaperclip } from '@fortawesome/free-solid-svg-icons';
 
 const Login = (props) => {
 
@@ -20,13 +19,13 @@ const Login = (props) => {
     // Hooks
     const [credentials, setCredentials] = useState({email:'',password:'',options:'user'});
 
-    const [msError, setMsError] = useState(['']);
+    const [error, setError] = useState(['']);
 
     // Handler
     const updateCredentials = (e) => {
         setCredentials({...credentials, [e.target.name]: e.target.value});
     }
-
+    
     // FUNCION LOGUEAR
     const SignIn = async () => {
 

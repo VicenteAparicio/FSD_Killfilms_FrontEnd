@@ -12,6 +12,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 20em;
     padding: 2em;
     transition: 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     border: .5em solid black;
@@ -30,6 +31,7 @@
         }
         .loginButton{
             color: yellow;
+
         }
     }
 
@@ -49,11 +51,19 @@
 
     }
     .loginButton{
-        margin-top: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 10em;
         cursor: pointer;
-        padding: .5em 1em;
         color: black;
         font-family: 'Roboto Mono', monospace;
+        &:hover{
+            .faLogin{
+                transition: 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+                font-size: 2em;
+            }
+        }
 
     }
 

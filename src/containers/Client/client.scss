@@ -1,32 +1,24 @@
 .clientContainer{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items:flex-start;
+
 }
 
 .clientBox {
+    position: fixed;
+    height: 3em;
+    top: 0em;
+    left: 1em;
+    z-index: 4;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
-    width: 100%;
-    padding: 2em 0;
 }
 
 .clientActions {
-    color: black;
-    padding: 2em;
-    background-color: white;
-    cursor: pointer;
-    margin-right: 2em;
-    width: 10em;
-    &:last-child{
-        margin-right: 0;
-    }
-    &:hover{
-        color: white;
-        background-color: black;
-    }
+    text-align: center;
+    width: 3em;
 }
 
 

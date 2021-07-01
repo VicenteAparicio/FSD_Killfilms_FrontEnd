@@ -4,8 +4,10 @@ header{
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    z-index: 4;
-    right: 1em;
+    background-color: yellow;
+    z-index: 3;
+    width: 100%;
+    opacity: .8;
     top:0;
     height: 3em;
 }

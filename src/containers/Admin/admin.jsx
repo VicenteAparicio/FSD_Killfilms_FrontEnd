@@ -1,4 +1,4 @@
-
+// IMPORT MOTORS
 import React from 'react';
 import {connect} from 'react-redux';
 // IMPORT COMPONENTS

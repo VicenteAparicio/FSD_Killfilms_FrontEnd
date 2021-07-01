@@ -18,6 +18,7 @@
     color: black;
     font-size: 1.2em;
     transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    cursor: pointer;
     &:hover{
         transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
         font-size: 2em;

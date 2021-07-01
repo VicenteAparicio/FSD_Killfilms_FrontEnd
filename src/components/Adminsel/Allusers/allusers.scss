@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2em 0 4em;
+    padding: 4em 0 4em;
 }
 
 .usersBox{
@@ -13,15 +13,15 @@
     justify-content: center;
     align-items: center;
     padding: 2em;
-    background-color: grey;
+
 }
 
 .userCard{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: darkgray;
-    width: 10em;
+    background-color: black;
+    width: 12em;
     padding: 1em 1em;
     margin-right: 1em;
     // box-shadow: .3em .3em 1em .1em black;
@@ -38,21 +38,23 @@
 
 .usersName{
     font-size: 2em;
-    color: white;
+    color: yellow;
+    font-family: 'Roboto Mono', monospace;
 }
 
 .usersInfo {
     font-size: 1em;
-    color: white;
+    color: yellow;
+    font-family: 'Roboto Mono', monospace;
 }
 
 
 .userButton {
-    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     cursor: pointer;
-    padding: 1em;
-    &:hover{
-        background-color: white;
-        color: black;
-    }
+    height: 3em;
+
 }

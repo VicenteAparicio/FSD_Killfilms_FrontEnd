@@ -3,6 +3,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 // IMPORT ACTIONS
 import { ADMINACTION } from '../../redux/types';
+// IMPORT ICONS
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 
 
 const Moviedetail = (props) => {
@@ -29,7 +32,7 @@ const Moviedetail = (props) => {
                         
                             <div className="movieName">{props.detail.title}</div>
                             <div className="movieInfo">Director: {props.detail.director}</div>
-                            <div className="movieInfo">Genre: {props.detail.genre}</div>
+                            <div className="movieInfo">Genre: {props.detail.genre.split(',').join(', ')}</div>
                             <div className="movieInfo">Actors: {props.detail.actors.split(',').join(', ')}</div>        
                             <div className="movieInfo">Overview: {props.detail.overview}</div>
                         </div>
@@ -38,7 +41,7 @@ const Moviedetail = (props) => {
                 
                 </div>
 
-                <div className="buttonDetails" onClick={()=>back()}>BACK</div>
+                <div className="buttonDetails" onClick={()=>back()}><FontAwesomeIcon className="faIcons" icon={faAngleLeft}/></div>
 
             </div>
         )

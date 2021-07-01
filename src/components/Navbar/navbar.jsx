@@ -32,7 +32,7 @@ const Navbar = (props) => {
                 setDestination("/client")
                 break;
             default:
-                setDestination("/")
+                setDestination("/login")
                 break;
         }
     },[]);

@@ -1,6 +1,10 @@
+// IMPORT MOTORS
 import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import axios from 'axios';
+// IMPORT ICONS
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 
 const Createmovies = (props) => {
 
@@ -49,7 +53,7 @@ const Createmovies = (props) => {
                 <div className="createBox">
                     <label className="labelCreate" for="title">CREATE MOVIE</label>
                     <input className="inputCreate" name="title" onChange={updateTitle} placeholder="Title"></input>
-                    <div className="createButton" onClick={()=>Createmovie()}>ACCEPT</div>
+                    <div className="createButton" onClick={()=>Createmovie()}><FontAwesomeIcon className="faLogin" icon={faPaperPlane}/></div>
                 </div>
         
             </div>

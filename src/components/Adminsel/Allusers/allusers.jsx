@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import axios from 'axios';
+// IMPORT ICONS
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMinusSquare } from '@fortawesome/free-solid-svg-icons';
 
 const Allusers = (props) => {
 
@@ -53,7 +56,7 @@ const Allusers = (props) => {
                                 <div className="usersInfo">{user.country}</div>
                                 <div className="usersInfo">{user.city}</div>
                             </div>
-                            <div className="userButton" onClick={()=>deleteUser(user.id)}>DELETE</div>
+                            <div className="userButton" onClick={()=>deleteUser(user.id)}><FontAwesomeIcon className="faIconsY" icon={faMinusSquare}/></div>
                         
                         </div>
                     ))}

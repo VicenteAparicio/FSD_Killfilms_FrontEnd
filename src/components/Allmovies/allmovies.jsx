@@ -50,7 +50,6 @@ const Allmovies = (props) => {
         );
     }
 
-    
     const userControl = () => {
         switch (props.logData.user.isAdmin){
             case true:
@@ -64,10 +63,6 @@ const Allmovies = (props) => {
                 break;
         }
     }
-    
-    
-
-
 
     const selectMovie = (movie) => {
         props.dispatch({type:SELECTMOVIE,payload:movie});

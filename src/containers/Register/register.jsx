@@ -4,13 +4,16 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 //IMPORT STYLE
 import '../../Global.css';
+// IMPORT ICONS
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 
 const Register = () => {
 
     let history = useHistory();
 
     // Hooks
-    const [credentials, setCredentials] = useState({name:'',lastName:'',email:'',password:'',birthDate:'',country:'',city:'', cp:'',isAdmin:'false',isActive:'true'});
+    const [credentials, setCredentials] = useState({name:'',lastName:'',email:'',password:'',birthDate:'',country:'',city:'', cp:'',isAdmin:'false',isPremium:'false',isActive:'true'});
     const [errors, setErrors] = useState({eName: '',eLastName: '',eEmail: '',ePassword:'',eBirthDate:'',eCountry:'',eCity:'', cp:''});
 
     const [msgError, setMensajeError] = useState('');
@@ -20,18 +23,45 @@ const Register = () => {
         setCredentials({...credentials, [e.target.name]: e.target.value});
     }
 
+    
+
     // FUNCTION ERROR CHECK
     const checkError = (arg) => {
         switch (arg){
             case 'name':
-                if(credentials.name.length < 4){
-                    setErrors({...errors, eName: 'El nombre debe de tener 4 caracteres'});
+                if ((credentials.name.length < 2)||(! /^[a-z ,.'-]+$/i.test(credentials.name))||(credentials.name.length > 20)){
+                    setErrors({...errors, eName: 'Introduce un nombre válido'});
                 }else{
                     setErrors({...errors, eName: ''});
                 }
-                break;
+            break;
+
             case 'email':
-                break;
+                if (! /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g.test(credentials.email)){
+                    setErrors({...errors, eEmail: 'Introduce un email válido 2'});
+                }else{
+                    setErrors({...errors, eEmail: ''});
+                }
+                
+            break;
+
+            case 'password':
+                if (! /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(credentials.password)){
+                    setErrors({...errors, ePassword: 'At least 8 characters, must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number. Can contain special characters'});
+                }else{
+                    setErrors({...errors, ePassword: ''});
+                }
+            break;
+
+            case 'phone':
+                if ((! /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/gm.test(credentials.phone))||(credentials.phone.length > 16)){
+                    setErrors({...errors, ePhone: 'Wrong phone number'});
+                }else{
+                    setErrors({...errors, ePhone: ''});
+                }
+            break;
+
+
             default:
                 break;
         }
@@ -39,9 +69,9 @@ const Register = () => {
 
     const Registration = async () => {
         //Primero  testeamos los datos
-        if (! /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/){
-            setMensajeError("Introduce un email válido");
-        } 
+        // if (! /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/){
+        //     setMensajeError("Introduce un email válido");
+        // } 
 
         //A continuación genearmos el body de datos
         let body = {
@@ -54,6 +84,7 @@ const Register = () => {
             city: credentials.city,
             cp: credentials.cp,
             isAdmin: credentials.isAdmin,
+            isPremium: credentials.isPremium,
             isActive: credentials.isActive
         }
         
@@ -105,7 +136,7 @@ const Register = () => {
     
                 
 
-                <div className="sendButton txtGreen dinC" onClick={()=>Registration()}>ACCEPT</div>
+                <div className="sendButton" onClick={()=>Registration()}><FontAwesomeIcon className="faLogin" icon={faPaperPlane}/></div>
                 <div>{msgError}</div>
             </div>
         </div>
