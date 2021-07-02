@@ -31,9 +31,7 @@ const Allusers = (props) => {
             let body = {
                 "id": userId
             }
-            console.log("Pasamos por body ",body.coachId)
             let res = await axios.post('http://localhost:3005/users/delete', body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
-            console.log("este es el resultado", res)
         } catch (err) {
             console.log({message: err.message})
         }
@@ -56,7 +54,7 @@ const Allusers = (props) => {
                                 <div className="usersInfo">{user.country}</div>
                                 <div className="usersInfo">{user.city}</div>
                             </div>
-                            <div className="userButton" onClick={()=>deleteUser(user.id)}><FontAwesomeIcon className="faIconsY" icon={faMinusSquare}/></div>
+                            <div className="userButton" onClick={()=>deleteUser(user.id)}><FontAwesomeIcon className="faIcons" icon={faMinusSquare}/></div>
                         
                         </div>
                     ))}

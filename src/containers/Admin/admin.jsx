@@ -1,6 +1,7 @@
 // IMPORT MOTORS
 import React from 'react';
 import {connect} from 'react-redux';
+import {useHistory} from 'react-router-dom';
 // IMPORT COMPONENTS
 import Visual from '../../components/Visual/visual';
 // IMPORT STYLES
@@ -8,9 +9,11 @@ import '../../Global.css'
 import { ADMINACTION } from '../../redux/types';
 // IMPORT ICONS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFileAlt, faFileVideo, faFilm, faReceipt, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faFileVideo, faFilm, faReceipt, faUsers } from '@fortawesome/free-solid-svg-icons';
 
 const Admin = (props) => {
+
+    let history = useHistory();
 
     const adminFn = (arg) => {
         switch (arg) {
@@ -32,14 +35,11 @@ const Admin = (props) => {
         }
     }
 
-
+if (props.logData.user?.isAdmin){
     return (
         <div className="adminContainer">
             <div className="adminBox">
-                {/* <div className="adminActions" onClick={()=>adminFn("allmovies")}>MOVIES</div>
-                <div className="adminActions" onClick={()=>adminFn("allusers")}>USERS</div>
-                <div className="adminActions" onClick={()=>adminFn("orders")}>ORDERS</div>
-                <div className="adminActions" onClick={()=>adminFn("createmovies")}>CREATE MOVIES</div> */}
+
                 <div className="adminActions" onClick={()=>adminFn("allmovies")}><FontAwesomeIcon className="faIcons" icon={faFilm}/></div>
                 <div className="adminActions" onClick={()=>adminFn("allusers")}><FontAwesomeIcon className="faIcons" icon={faUsers}/></div>
                 <div className="adminActions" onClick={()=>adminFn("orders")}><FontAwesomeIcon className="faIcons" icon={faReceipt}/></div>
@@ -49,6 +49,14 @@ const Admin = (props) => {
             <Visual/>                
         </div>
     )
+    } else {
+        setTimeout(()=>{
+            history.push('/')
+        }, 1000)
+        return (
+            <div className="adminContainer">Not allowed</div>
+        )
+    }
 }
 
 export default connect((state)=>(

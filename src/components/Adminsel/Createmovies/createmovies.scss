@@ -1,4 +1,4 @@
-.createmoviesContainer{
+.createMoviesContainer{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,7 +20,6 @@
 }
 
 .inputCreate{
-    
     all: unset;
     border-bottom: .2em solid black;
     margin: 1em 0 2em;
