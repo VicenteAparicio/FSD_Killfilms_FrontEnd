@@ -5,10 +5,6 @@ import {connect} from 'react-redux';
 // IMPORT ICONS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faSignInAlt, faSignOutAlt, faUserCircle, faUserPlus } from '@fortawesome/free-solid-svg-icons';
-
-
-//IMPORT COMPONENTS
-
 // IMPORT STYLES
 import '../../Global.css';
 import { LOGOUT } from '../../redux/types';
@@ -24,6 +20,15 @@ const Navbar = (props) => {
     }
 
     useEffect(()=>{
+        controlDestination();
+    },[]);
+
+    useEffect(()=>{
+        controlDestination();
+    });
+    
+
+    const controlDestination = () => {
         switch (props.logData.user.isAdmin){
             case true:
                 setDestination("/admin")
@@ -35,10 +40,7 @@ const Navbar = (props) => {
                 setDestination("/login")
                 break;
         }
-    },[]);
-
-
-
+    }
 
     if (props.logData.token){
         

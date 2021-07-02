@@ -16,14 +16,10 @@ const Register = () => {
     const [credentials, setCredentials] = useState({name:'',lastName:'',email:'',password:'',birthDate:'',country:'',city:'', cp:'',isAdmin:'false',isPremium:'false',isActive:'true'});
     const [errors, setErrors] = useState({eName: '',eLastName: '',eEmail: '',ePassword:'',eBirthDate:'',eCountry:'',eCity:'', eCP:'',eCardNumber:'',eExpiration:'',eCVV:'',eAdress:''});
 
-    const [msgError, setMensajeError] = useState('');
-
     // Handler
     const updateCredentials = (e) => {
         setCredentials({...credentials, [e.target.name]: e.target.value});
     }
-
-    
 
     // FUNCTION ERROR CHECK
     const checkError = (arg) => {
@@ -81,10 +77,6 @@ const Register = () => {
     }
 
     const Registration = async () => {
-        //Primero  testeamos los datos
-        // if (! /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/){
-        //     setMensajeError("Introduce un email válido");
-        // } 
 
         //A continuación genearmos el body de datos
         let body = {
@@ -186,7 +178,6 @@ const Register = () => {
                 
 
                 <div className="sendButton" onClick={()=>Registration()}><FontAwesomeIcon className="faLogin" icon={faPaperPlane}/></div>
-                <div>{msgError}</div>
             </div>
         </div>
     )

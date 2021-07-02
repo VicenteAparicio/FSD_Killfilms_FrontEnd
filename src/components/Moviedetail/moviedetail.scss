@@ -24,12 +24,15 @@
     background-color: black;
     opacity: .88;
     padding: 2em;
+    font-family: 'Roboto Mono', monospace;
 
+    
     .movieData{
         display: flex;
         flex-direction: column;
         color: white;
         margin-left: 2em;
+        
     }
     
     .movieName{

@@ -20,7 +20,20 @@ const Moviedetail = (props) => {
         props.dispatch({type:ADMINACTION,payload:"allmovies"})
     }
     const playMovie = () => {
-        history.push('/viewMovie');
+        switch (props.detail.isPremium){
+            case true:
+                if (props.logData.user.isPremium){
+                    history.push('/watch');
+                } else {
+                    alert ("You need upgrade to Premium account if you want to watch this movie");
+                }
+                break;
+            case false:
+                history.push('/watch');
+                break;
+            default:
+                break;
+        }
     }
 
     if(props.logData.token){

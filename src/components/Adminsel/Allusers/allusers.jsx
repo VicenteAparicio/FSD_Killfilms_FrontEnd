@@ -31,7 +31,7 @@ const Allusers = (props) => {
             let body = {
                 "id": userId
             }
-            let res = await axios.post('http://localhost:3005/users/delete', body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
+            await axios.post('http://localhost:3005/users/delete', body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
         } catch (err) {
             console.log({message: err.message})
         }
