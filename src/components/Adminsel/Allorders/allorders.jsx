@@ -48,13 +48,13 @@ const Allorders = (props) => {
                         <div className="orderCard" key={index}>
                             
                             <div className="orderData">
-                                <div className="ordersName">Order Id: {order.id}</div>
-                                <div className="ordersInfo">Order movie: {order.titleMovie}</div>
-                                <div className="ordersInfo">User: {order.userId}</div>
-                                <div className="ordersInfo">Times watched: {order.howManyTimesWatched}</div>
-                                <div className="ordersInfo">First time watched: {order.createdAt}</div>
+                                <div className="orderInfo">{order.id}</div>
+                                <div className="orderMovieName">{order.titleMovie}</div>
+                                <div className="orderInfo">{order.userId}</div>
+                                <div className="orderInfo">{order.howManyTimesWatched}</div>
+                                <div className="orderDate">{order.createdAt}</div>
                             </div>
-                            <div className="userButton" onClick={()=>deleteOrder(order.id)}><FontAwesomeIcon className="faIcons" icon={faMinusSquare}/></div>
+                            <div className="orderButton" onClick={()=>deleteOrder(order.id)}><FontAwesomeIcon className="faIcons" icon={faMinusSquare}/></div>
                         
                         </div>
                     ))}
