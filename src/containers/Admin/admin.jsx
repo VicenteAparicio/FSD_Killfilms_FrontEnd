@@ -42,7 +42,7 @@ if (props.logData.user?.isAdmin){
 
                 <div className="adminActions" onClick={()=>adminFn("allmovies")}><FontAwesomeIcon className="faIcons" icon={faFilm}/></div>
                 <div className="adminActions" onClick={()=>adminFn("allusers")}><FontAwesomeIcon className="faIcons" icon={faUsers}/></div>
-                <div className="adminActions" onClick={()=>adminFn("orders")}><FontAwesomeIcon className="faIcons" icon={faReceipt}/></div>
+                <div className="adminActions" onClick={()=>adminFn("allorders")}><FontAwesomeIcon className="faIcons" icon={faReceipt}/></div>
                 <div className="adminActions" onClick={()=>adminFn("createmovies")}><FontAwesomeIcon className="faIcons" icon={faFileVideo}/></div>
             </div>
 

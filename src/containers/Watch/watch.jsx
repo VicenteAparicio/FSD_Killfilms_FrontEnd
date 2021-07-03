@@ -43,9 +43,7 @@ const Watch = (props) => {
         let count = element.howManyTimesWatched+1;
         let watchDates = [];
         watchDates.push(element.watchDates);
-        console.log("esto es el watchDates que llega", watchDates)
         watchDates.push(new Date());
-        console.log("esto es el watchDates con la nueva date", watchDates)
         let body = {
             "orderId": element.id,
             "howManyTimesWatched" : count,

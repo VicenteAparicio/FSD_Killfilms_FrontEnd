@@ -1,4 +1,4 @@
-.allUsersContainer{
+.allOrdersContainer{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -6,7 +6,7 @@
     padding: 4em 0 4em;
 }
 
-.usersBox{
+.ordersBox{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -16,12 +16,14 @@
 
 }
 
-.userCard{
+.orderCard{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     background-color: black;
-    width: 12em;
+    width: 15em;
+    height: 15em;
     padding: 1em 1em;
     margin-right: 1em;
     // box-shadow: .3em .3em 1em .1em black;
@@ -30,26 +32,27 @@
     }
 }
 
-.userData{
+.orderData{
     display: flex;
     flex-direction: column;
     margin-bottom: 1em;
-}
-
-.usersName{
-    font-size: 2em;
     color: yellow;
     font-family: 'Roboto Mono', monospace;
 }
 
-.usersInfo {
+.ordersName{
+    font-size: 2em;
+    
+}
+
+.ordersInfo {
     font-size: 1em;
     color: yellow;
     font-family: 'Roboto Mono', monospace;
 }
 
 
-.userButton {
+.orderButton {
     display: flex;
     justify-content: center;
     align-items: center;

@@ -50,10 +50,9 @@ const Navbar = (props) => {
                     {/* <FontAwesomeIcon className="coffe" icon={faBars} onClick={()=>Deploymenu()}/>  */}
                     <ul id="navLinkBox" className="linksContainer" >
                         
-                        {/* <li className="listLinks"><NavLink className="links" to={destination}>{props.logData?.user.name.toUpperCase()}</NavLink></li> */}
                         <li className="listLinks"><NavLink className="links" to={destination}><FontAwesomeIcon className="faIcons" icon={faUserCircle}/></NavLink></li>
                         <li className="listLinks"><NavLink className="links" onClick={()=>Logout()} to="/login" ><FontAwesomeIcon className="faIcons" icon={faSignOutAlt}/></NavLink></li>
-                        {/* <li><NavLink className="links" onClick={()=>Logout()} to="/login" >LOGOUT</NavLink></li> */}
+         
                     </ul>
                 </div>
             </div>
@@ -66,14 +65,11 @@ const Navbar = (props) => {
                 <div className="menuDeploy" >
                     {/* <FontAwesomeIcon className="coffe" icon={faBars} onClick={()=>Deploymenu()}/> */}
                     <div id="navLinkBox" className="linksContainer" >
-                        {/* <li className="listLinks"><NavLink className="links" to="/">HOME</NavLink></li> */}
-                        <li className="listLinks"><NavLink className="links" to="/"><FontAwesomeIcon className="faIcons" icon={faHome}/></NavLink></li>
-                        <li className="listLinks"><NavLink className="links" to="/login"><FontAwesomeIcon className="faIcons" icon={faSignInAlt}/></NavLink></li>
-                        {/* <li><NavLink className="links" to="/login">LOGIN</NavLink></li> */}
 
-                        
+                        <li className="listLinks"><NavLink className="links" to="/"><FontAwesomeIcon className="faIcons" icon={faHome}/></NavLink></li>
+                        <li className="listLinks"><NavLink className="links" to="/login"><FontAwesomeIcon className="faIcons" icon={faSignInAlt}/></NavLink></li>                
                         <li className="listLinks"><NavLink className="links" to="/register"><FontAwesomeIcon className="faIcons" icon={faUserPlus}/></NavLink></li>
-                        {/* <li className="listLinks"><NavLink className="links" to="/register">REGISTER</NavLink></li> */}
+
                     </div>
                 </div>
             </div>

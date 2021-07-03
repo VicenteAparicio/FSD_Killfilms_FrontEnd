@@ -40,7 +40,7 @@ const Allusers = (props) => {
 
     if (props.logData.user?.isAdmin){
         return (
-            <div className="allusersContainer">
+            <div className="allUsersContainer">
                         
                 <div className="usersBox">
                     {users.map((user, index)=>(
