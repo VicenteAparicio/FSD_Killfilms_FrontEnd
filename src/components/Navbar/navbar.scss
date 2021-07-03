@@ -14,25 +14,36 @@
     justify-content: center;
 }
 
-.coffe{
-    color: white;
-    font-size: .8em;
+.faIcons{
+    color: black;
+    font-size: 1.2em;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    cursor: pointer;
+    &:hover{
+        transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+        font-size: 2em;
+    }
 }
 
 .linksContainer{
     display: flex;
     align-items: center;
-    flex-direction: row; 
-    z-index: 3;
+    flex-direction: row;
 
-    li{
+
+    .listLinks{
         all: unset;
-        margin-left: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 3em;
+        text-align: center;
+
         &:first-child{
             margin-left: 0;
         }
     }
-    
+
     .links{
         font-size: 1em;
         text-decoration: none;

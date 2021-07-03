@@ -8,6 +8,9 @@ import axios from 'axios';
 import {LOGIN} from '../../redux/types';
 // IMPORT STYLES
 import '../../Global.css';
+// IMPORT ICONS
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 
 const Login = (props) => {
 
@@ -16,21 +19,13 @@ const Login = (props) => {
     // Hooks
     const [credentials, setCredentials] = useState({email:'',password:'',options:'user'});
 
-    const [msError, setMsError] = useState(['']);
-
     // Handler
     const updateCredentials = (e) => {
         setCredentials({...credentials, [e.target.name]: e.target.value});
     }
-
+    
     // FUNCION LOGUEAR
     const SignIn = async () => {
-
-        // Validación email
-    //     if (! /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(credentials.email) ) {
-    //         setMsError('Introduce un formato de email válido');
-    //         return;
-    //    }
 
         // A continuación genearmos el body de datos
         let body = {
@@ -51,8 +46,7 @@ const Login = (props) => {
                 }
             })
             .catch((error)=>{
-                // alert(error)
-
+                alert(error)
             });  
     }
      
@@ -70,7 +64,7 @@ const Login = (props) => {
                 <input className="inputsLogin" type="password" name="password" onChange={updateCredentials} placeholder="Password"></input>
                 
 
-                <div className="loginButton" onClick={()=>SignIn()}>GO!</div>
+                <div className="loginButton" onClick={()=>SignIn()}><FontAwesomeIcon className="faLogin" icon={faPaperPlane}/></div>
                 {/* <div>{logError}</div> */}
             </div>
         </div>

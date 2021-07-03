@@ -3,45 +3,90 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 100vh;
 
     .boxRegister{
         display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        background-color: black;
+        width: 60%;
+        padding: 2em;
+        font-family: 'Roboto Mono', monospace;
+    }
+    .personalInfo{
+        display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 50%;
-        padding: 2em 0;
+        border: .3em solid yellow;
+        color: yellow;
+        padding: 2em;
         
     }
+    .bankInfo{
+        display: flex;
+        flex-direction: column;
+        border: .3em solid yellow;
+        color: yellow;
+        padding: 2em;
+    }
+
+    .titleSection{
+        font-size: 1.2em;
+        margin-bottom: .5em;
+    }
+
     .labelsRegister{
-        color: white;
-        font-size: 1em;
+        color: yellow;
+        font-size: .9em;    
     }
 
     .inputsRegister {
         all: unset;
-        background-color: white;
-        color: black;
+        border-bottom: .15em dotted yellow;
+        font-size: .8em;
+        color: yellow;
         padding: .2em;
-        margin: .5em 0 1.5em;
+        margin: .2em 0 .4em;
         width: 20vw;
         max-width: 30em;
         min-width: 20em;
+        
+    }
+    .inputsRegisterHalf {
+        all: unset;
+        border-bottom: .15em dotted yellow;
+        color: yellow;
+        font-size: .8em;
+        padding: .2em;
+        margin: .2em 0 .4em;
+        width: 8vw;
+        max-width: 12em;
+        min-width: 8em;
     }
 
     .sendButton {
-
-        background-color: white;
+        display: flex;
         font-size: 1.2em;
-        margin: 2em 0;
-        padding: .5em 1em;
-        color: black;
+        height: 3em;
+        align-items: center;
+        justify-content: center;
+        color: yellow;
         cursor: pointer;
         align-self: center;
-    }
-    .sendButton:hover{
-        background-color: $favorito3;
-        color: white;
+        font-family: 'Roboto Mono', monospace;
+        transition: 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        &:hover{
+            .faLogin{
+                transition: 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+               font-size: 2em;
+        }
+        }
     }
 
+    .validateError{
+        color: red;
+        font-size: .6em;
+        width: 40em;
+        margin-bottom: 1em;
+    }
 }

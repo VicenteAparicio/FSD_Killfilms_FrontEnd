@@ -1,9 +1,9 @@
 .containerLogin {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    height: calc(100vh - 3em);
+    height: 100vh;
 }
 
 .boxLogin {
@@ -12,40 +12,59 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-    width: 20em;
     height: 20em;
-    border-radius: 100%;
-    border: solid .15em white;
+    padding: 2em;
+    transition: 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    border: .5em solid black;
     
     &:hover{
-        animation-name: breath;
-        animation-duration: 2s;
-        animation-timing-function: cubic-bezier(0.86, 0.15, 0.27, 1);
-        animation-iteration-count: infinite;
+        transition: 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        border: 0;
+        background-color: black;
+        box-shadow: 0em 0em .1em .5em black;
+
+        .labelsLogin{
+            color: yellow;
+        }
+        .inputsLogin{
+            color:yellow;
+        }
+        .loginButton{
+            color: yellow;
+
+        }
     }
 
     .labelsLogin{
         margin-top: 1em;
-        color: white;
+        color: black;
+        font-family: 'Roboto Mono', monospace;
+
+
     }
     .inputsLogin{
         all:unset;
         text-align: center;
         padding: .5em 1em;
-        color:white;
+        color:black;
+        font-family: 'Roboto Mono', monospace;
+
     }
     .loginButton{
-        margin-top: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 10em;
         cursor: pointer;
-        padding: .5em 1em;
-        color: white;
+        color: black;
+        font-family: 'Roboto Mono', monospace;
+        &:hover{
+            .faLogin{
+                transition: 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+                font-size: 2em;
+            }
+        }
+
     }
 
-}
-
-@keyframes breath {
-    0% { box-shadow: 0em 0em .25em .25em white;}
-    50% { box-shadow: 0em 0em 1em 1em white;}
-    100% { box-shadow: 0em 0em .25em .25em white;}
 }

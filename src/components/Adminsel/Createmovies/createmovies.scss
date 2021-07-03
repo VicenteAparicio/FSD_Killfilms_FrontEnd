@@ -1,4 +1,4 @@
-.createmoviesContainer{
+.createMoviesContainer{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,25 +10,25 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: white;
+    color: black;
+    font-family: 'Roboto Mono', monospace;
 }
 
 .labelCreate{
-    color: white;
+    color: black;
     font-size: 2em;
 }
 
 .inputCreate{
-    
     all: unset;
-    border-bottom: .2em solid white;
+    border-bottom: .2em solid black;
     margin: 1em 0 2em;
 }
 
 .createButton {
-    background-color: white;
+    background-color: black;
     padding: .5em 1em;
-    color: black;
+    color: yellow;
     cursor: pointer;
 }
 

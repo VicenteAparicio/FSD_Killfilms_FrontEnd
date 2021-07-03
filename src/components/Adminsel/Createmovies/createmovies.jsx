@@ -1,6 +1,10 @@
+// IMPORT MOTORS
 import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import axios from 'axios';
+// IMPORT ICONS
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 
 const Createmovies = (props) => {
 
@@ -18,7 +22,7 @@ const Createmovies = (props) => {
         setTitleMovie({[e.target.name]: e.target.value});
     }
 
-    const Createmovie = async () => {
+    const createMovie = async () => {
 
         let body = {
             "title": titleMovie.title,
@@ -44,12 +48,12 @@ const Createmovies = (props) => {
 
     if (props.logData.user?.isAdmin){
         return (
-            <div className="createmoviesContainer">
+            <div className="createMoviesContainer">
 
                 <div className="createBox">
                     <label className="labelCreate" for="title">CREATE MOVIE</label>
                     <input className="inputCreate" name="title" onChange={updateTitle} placeholder="Title"></input>
-                    <div className="createButton" onClick={()=>Createmovie()}>ACCEPT</div>
+                    <div className="createButton" onClick={()=>createMovie()}><FontAwesomeIcon className="faLogin" icon={faPaperPlane}/></div>
                 </div>
         
             </div>

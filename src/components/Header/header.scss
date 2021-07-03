@@ -1,12 +1,13 @@
 header{
-    box-sizing: border-box;
+    position: fixed;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    height: 3em;
-    padding: 0 2em;
-    background-color: black;
+    background-color: yellow;
+    z-index: 3;
     width: 100%;
-    z-index: 4;
+    opacity: .8;
+    top:0;
+    height: 3em;
 }

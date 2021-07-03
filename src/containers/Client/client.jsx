@@ -1,12 +1,13 @@
+// IMPORT MOTORS
 import React from "react";
-
 import {connect} from 'react-redux';
 // IMPORT COMPONENTS
 import Visual from '../../components/Visual/visual';
-//IMPORT STYLES
-import '../../Global.css'
+// IMPORT ACTIONS
 import { ADMINACTION } from '../../redux/types';
-
+// IMPORT ICONS
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFilm, faReceipt} from '@fortawesome/free-solid-svg-icons';
 const Client = (props) => {
 
     
@@ -16,8 +17,9 @@ const Client = (props) => {
             case "allmovies":
                 props.dispatch({type:ADMINACTION,payload:"allmovies"})
                 break;
-            // case "allusers":
-            //     props.dispatch({type:ADMINACTION,payload:"allusers"})
+                case "orders":
+                    props.dispatch({type:ADMINACTION,payload:"orders"})
+                    break;
             //     break;
             // case "createmovies":
             //     props.dispatch({type:ADMINACTION,payload:"createmovies"})
@@ -32,7 +34,8 @@ const Client = (props) => {
     return (
         <div className="clientContainer">
             <div className="clientBox">
-                <div className="clientActions" onClick={()=>clientFn("allmovies")}>ALL MOVIES</div>
+            <div className="clientActions" onClick={()=>clientFn("allmovies")}><FontAwesomeIcon className="faIcons" icon={faFilm}/></div>
+            <div className="adminActions" onClick={()=>clientFn("orders")}><FontAwesomeIcon className="faIcons" icon={faReceipt}/></div>
                 {/* <div className="adminActions" onClick={()=>AdminFn("allusers")}>ALL USERS</div>
                 <div className="adminActions" onClick={()=>AdminFn("createmovies")}>CREATE MOVIES</div> */}
                 

@@ -3,12 +3,8 @@ import React, {useEffect, useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import {connect} from 'react-redux';
 // IMPORT ICONS
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faCoffee } from '@fortawesome/free-solid-svg-icons'
-
-
-//IMPORT COMPONENTS
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faSignInAlt, faSignOutAlt, faUserCircle, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 // IMPORT STYLES
 import '../../Global.css';
 import { LOGOUT } from '../../redux/types';
@@ -24,6 +20,15 @@ const Navbar = (props) => {
     }
 
     useEffect(()=>{
+        controlDestination();
+    },[]);
+
+    useEffect(()=>{
+        controlDestination();
+    });
+    
+
+    const controlDestination = () => {
         switch (props.logData.user.isAdmin){
             case true:
                 setDestination("/admin")
@@ -32,13 +37,10 @@ const Navbar = (props) => {
                 setDestination("/client")
                 break;
             default:
-                setDestination("/")
+                setDestination("/login")
                 break;
         }
-    },[]);
-
-
-
+    }
 
     if (props.logData.token){
         
@@ -48,8 +50,9 @@ const Navbar = (props) => {
                     {/* <FontAwesomeIcon className="coffe" icon={faBars} onClick={()=>Deploymenu()}/>  */}
                     <ul id="navLinkBox" className="linksContainer" >
                         
-                        <li><NavLink className="links" to={destination}>{props.logData?.user.name.toUpperCase()}</NavLink></li>
-                        <li><NavLink className="links" onClick={()=>Logout()} to="/login" >LOGOUT</NavLink></li>
+                        <li className="listLinks"><NavLink className="links" to={destination}><FontAwesomeIcon className="faIcons" icon={faUserCircle}/></NavLink></li>
+                        <li className="listLinks"><NavLink className="links" onClick={()=>Logout()} to="/login" ><FontAwesomeIcon className="faIcons" icon={faSignOutAlt}/></NavLink></li>
+         
                     </ul>
                 </div>
             </div>
@@ -62,9 +65,11 @@ const Navbar = (props) => {
                 <div className="menuDeploy" >
                     {/* <FontAwesomeIcon className="coffe" icon={faBars} onClick={()=>Deploymenu()}/> */}
                     <div id="navLinkBox" className="linksContainer" >
-                        <li><NavLink className="links" to="/">HOME</NavLink></li>
-                        <li><NavLink className="links" to="/login">LOGIN</NavLink></li>
-                        <li><NavLink className="links" to="/register">REGISTER</NavLink></li>
+
+                        <li className="listLinks"><NavLink className="links" to="/"><FontAwesomeIcon className="faIcons" icon={faHome}/></NavLink></li>
+                        <li className="listLinks"><NavLink className="links" to="/login"><FontAwesomeIcon className="faIcons" icon={faSignInAlt}/></NavLink></li>                
+                        <li className="listLinks"><NavLink className="links" to="/register"><FontAwesomeIcon className="faIcons" icon={faUserPlus}/></NavLink></li>
+
                     </div>
                 </div>
             </div>

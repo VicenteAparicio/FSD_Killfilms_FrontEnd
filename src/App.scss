@@ -2,6 +2,7 @@
 @import 'containers/Home/home.scss';
 @import 'containers/Client/client.scss';
 @import 'containers/Register/register.scss';
+@import 'containers/Watch/watch.scss';
 @import 'containers/Login/login.scss';
 @import 'containers/Admin/admin.scss';
 @import 'components/Header/header.scss';
@@ -10,21 +11,11 @@
 @import 'components/Allmovies/allmovies.scss';
 @import 'components/Moviedetail/moviedetail.scss';
 @import 'components/Adminsel/Allusers/allusers.scss';
+@import 'components/Adminsel/Allorders/allorders.scss';
 @import 'components/Adminsel/Createmovies/createmovies.scss';
 
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
-
-
-
-
-.containerApp{
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  background-color: black;
-}
 
 // .App {
 //   text-align: center;
