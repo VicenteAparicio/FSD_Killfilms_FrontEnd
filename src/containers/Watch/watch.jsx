@@ -61,52 +61,56 @@ const Watch = (props) => {
         }
         console.log("pasamos userId para búsqueda de las películas vistas de User id ", body.userId)
         let res = await axios.post('http://localhost:3005/orders/orderuserid', body)
-        console.log("devuelve resultado de búsqueda", res.data)
-        if (res?.data[0]){
+        if (res.data[0]){
+            let count = 0;
                 res.data.forEach(element => {
-                    console.log("cada película", element)
-                    console.log("cada titulo", element.titleMovie)
-                    console.log("el id de la orden", element.id)
-                    console.log("cuantas veces vista", element.howManyTimesWatched)
+                    console.log("titulo del props", props.detail.title)
                     if (element.titleMovie === props.detail.title){
+                        count = 1;
                         updateTimesWatched(element);
-                        }
+                    }
                 });
+                if (count === 0){
+                    saveWatchUser();
+                }
         } else {
             saveWatchUser();
-            }
         }
+    }
     
         
 
 
-if (props.logData.token){
+    if (props.logData.token){
     
-    return (
-        <div className="containerWatch">
+        return (
+            <div className="containerWatch">
 
-            <div className="playMovieBox">
-            
-                    <iframe className="filmTransmission" src={props.detail.urlTrailer} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true"></iframe>
+                <div className="playMovieBox">
+                
+                        <iframe className="filmTransmission" src={props.detail.urlTrailer} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true"></iframe>
 
 
-            </div>
-            <div className="menuWatch">
-                <div className="detailOptions">
-                        <div className="buttonDetails" onClick={()=>back()}><FontAwesomeIcon className="faIcons" icon={faAngleLeft}/></div><div className="buttonDetails" onClick={()=>watchMovie()}><FontAwesomeIcon className="faIcons" icon={faPlayCircle}/></div>
                 </div>
+                <div className="menuWatch">
+                    <div className="detailOptions">
+                            <div className="buttonDetails" onClick={()=>back()}><FontAwesomeIcon className="faIcons" icon={faAngleLeft}/></div><div className="buttonDetails" onClick={()=>watchMovie()}><FontAwesomeIcon className="faIcons" icon={faPlayCircle}/></div>
+                    </div>
+                </div>
+                
             </div>
-            
-        </div>
-    )
-} else {
-    setTimeout(()=>{
-        history.push('/register')
-    }, 1000)
-    return (
-        <div className="">Not allowed</div>
-    )
-}
+        )
+
+    } else {
+
+        setTimeout(()=>{
+            history.push('/register')
+        }, 1000);
+
+        return (
+            <div>Not allowed</div>
+        )
+    }
 
 
 }
