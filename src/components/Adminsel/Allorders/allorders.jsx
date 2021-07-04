@@ -7,16 +7,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinusSquare } from '@fortawesome/free-solid-svg-icons';
 
 const Allorders = (props) => {
+
     let history = useHistory();
 
     const [orders, setOrders] = useState([]);
     const [search, setSearch] =useState('');
+    const [searchByTitle, setSearchByTitle] =useState('');
     const [filteredOrders, setFilteredOrders] = useState([]);
     const [showDelete, setShowDelete] = useState('');
     const [showSearchBar, setShowSearchBar] = useState('');
     
-    
-
     useEffect(()=>{
         if (props.logData.user.isAdmin){
             allOrders();
@@ -26,6 +26,25 @@ const Allorders = (props) => {
         userControl();
     },[]);
 
+    // Search by user ID
+    useEffect(()=>{
+        let orderFilter = [];
+
+        if (!search){
+            setFilteredOrders(orders);
+
+        } else {
+            orders.map((order, index)=>{
+                if (order.userId == search){
+                    orderFilter.push(order);
+                }
+            })
+            setFilteredOrders(orderFilter);
+
+        }
+    }, [search, orders]);
+
+    // VIEW ORDERS FROM CLIENT USER
     const ordersByUserId = async () => {
         try{
             let body = {
@@ -38,6 +57,53 @@ const Allorders = (props) => {
         }
     }
 
+    // ORDERS BY TITLE
+    const updateOrderByTitle = () => {
+        setFilteredOrders(
+            orders.filter((order)=>
+                order.titleMovie.toLowerCase().includes(searchByTitle.toLowerCase())
+            )
+        );
+    }
+
+    // GET ALL ORDERS
+    const allOrders = async () => {
+        try{
+            let res = await axios.get('http://localhost:3005/orders', {headers: {'Authorization': `Basic ${props.logData.token}`}});
+            setOrders(res.data)
+        } catch (err) {
+            console.log({message: err.message})
+        }
+    }
+
+    // DELETE ORDERS
+    const deleteOrder = async (orderId) => {
+        
+        try{
+            let body = {
+                "orderId": orderId
+            }
+            await axios.post('http://localhost:3005/orders/delete', body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
+        } catch (err) {
+            console.log({message: err.message})
+        }
+        allOrders();
+    }
+
+    // HANDLER SEARCH BY ID
+    const searchOrderId = (arg) => {
+        setSearch(arg);
+    }
+    // HANDLER SEARCH BY TITLE
+    const searchTitle = (arg) => {
+        if (arg.length>2){
+            setSearchByTitle(arg)
+        } else {
+            setSearchByTitle('');
+        }
+        updateOrderByTitle();
+    }
+    // CONTROL OF ELEMENTS 
     const userControl = () => {
         switch (props.logData.user.isAdmin){
             case true:
@@ -54,55 +120,13 @@ const Allorders = (props) => {
         }
     }
 
-    useEffect(()=>{
-        let orderFilter = [];
-
-        if (!search){
-            setFilteredOrders(orders);
-
-        } else {
-            orders.map((order, index)=>{
-                if (order.userId === search){
-                    orderFilter.push(order);
-                }
-            })
-            setFilteredOrders(orderFilter);
-
-        }
-    }, [search, orders]);
-
-    
-    const searchOrderId = (arg) =>{
-        setSearch(arg);
-    }
-
-    const allOrders = async () => {
-        try{
-            let res = await axios.get('http://localhost:3005/orders', {headers: {'Authorization': `Basic ${props.logData.token}`}});
-            setOrders(res.data)
-        } catch (err) {
-            console.log({message: err.message})
-        }
-    }
-
-    const deleteOrder = async (orderId) => {
-        
-        try{
-            let body = {
-                "orderId": orderId
-            }
-            await axios.post('http://localhost:3005/orders/delete', body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
-        } catch (err) {
-            console.log({message: err.message})
-        }
-        allOrders();
-    }
     if (props.logData.token){
         return (
             <div className="allOrdersContainer">
 
                 <div className="searchMovieContainer">
-                    <input className={showSearchBar} name="orderSearch" type="text" placeholder="Search by user id" onChange={(e)=>searchOrderId(e.target.value)}></input>
+                    <input className={showSearchBar} name="orderSearch" type="text" placeholder="User id" onChange={(e)=>searchOrderId(e.target.value)}></input>
+                    <input className={showSearchBar} name="orderSearch" type="text" placeholder="Title" onChange={(e)=>searchTitle(e.target.value)}></input>
 
                 </div>
                         
