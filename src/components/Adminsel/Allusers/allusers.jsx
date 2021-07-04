@@ -7,7 +7,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinusSquare } from '@fortawesome/free-solid-svg-icons';
 
 const Allusers = (props) => {
+
+        // let connection = "http://localhost:3005";
+        // let connection = "https://killfilms.herokuapp.com";
+        let connection = "https://killfilmsbackend.herokuapp.com";
+
     let history = useHistory();
+
     const [users, setUsers] = useState([]);
     const [filteredUsers, setFilteredUsers] = useState([]);
     const [search, setSearch] =useState('');
@@ -46,7 +52,9 @@ const Allusers = (props) => {
 
     const allUsers = async () => {
         try{
-            let res = await axios.get('http://localhost:3005/users/allUsers', {headers: {'Authorization': `Basic ${props.logData.token}`}});
+            // let res = await axios.get('http://localhost:3005/users/allUsers', {headers: {'Authorization': `Basic ${props.logData.token}`}});
+            let res = await axios.get(`${connection}/users/allUsers`, {headers: {'Authorization': `Basic ${props.logData.token}`}});
+
             setUsers(res.data)
         } catch (err) {
             console.log({message: err.message})
@@ -59,7 +67,8 @@ const Allusers = (props) => {
             let body = {
                 "id": userId
             }
-            await axios.post('http://localhost:3005/users/delete', body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
+            // await axios.post('http://localhost:3005/users/delete', body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
+            await axios.post(`${connection}/users/delete`, body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
         } catch (err) {
             console.log({message: err.message})
         }

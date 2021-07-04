@@ -11,6 +11,10 @@ import { faAngleLeft, faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 
 const Watch = (props) => {
 
+    // let connection = "http://localhost:3005";
+    // let connection = "https://killfilms.herokuapp.com";
+    let connection = "https://killfilmsbackend.herokuapp.com";
+
     let history = useHistory();
 
     const back = () => {
@@ -32,7 +36,10 @@ const Watch = (props) => {
                 "howManyTimesWatched": 1,
                 "watchDates": new Date()
             }
-        await axios.post('http://localhost:3005/orders/neworder', body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
+        // await axios.post('http://localhost:3005/orders/neworder', body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
+        await axios.post(`${connection}/orders/neworder`, body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
+
+        
 
         } catch (err) {
             console.log({message: err.message})
@@ -53,14 +60,17 @@ const Watch = (props) => {
             "watchDates": watchDates
         }
         await axios
-            .post('http://localhost:3005/orders/modifycount', body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
+            // .post('http://localhost:3005/orders/modifycount', body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
+            .post(`${connection}/orders/modifycount`, body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
     }
 
     const watchMovie = async () => {
         let body = {
             "userId": props.logData.user.id
         }
-        let res = await axios.post('http://localhost:3005/orders/orderuserid', body)
+        // let res = await axios.post('http://localhost:3005/orders/orderuserid', body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
+        let res = await axios.post(`${connection}/orders/orderuserid`, body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
+
         if (res.data[0]){
             let count = 0;
                 res.data.forEach(element => {

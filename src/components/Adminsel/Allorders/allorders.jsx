@@ -6,7 +6,13 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinusSquare } from '@fortawesome/free-solid-svg-icons';
 
+
+
 const Allorders = (props) => {
+
+    // let connection = "http://localhost:3005";
+    // let connection = "https://killfilms.herokuapp.com";
+    let connection = "https://killfilmsbackend.herokuapp.com";
 
     let history = useHistory();
 
@@ -50,7 +56,9 @@ const Allorders = (props) => {
             let body = {
                 "userId": props.logData.user.id
             }
-            let res = await axios.post('http://localhost:3005/orders/orderuserid', body, {headers: {'Authorization': `Basic ${props.logData.token}`}});
+            // let res = await axios.post('http://localhost:3005/orders/orderuserid', body, {headers: {'Authorization': `Basic ${props.logData.token}`}});
+            let res = await axios.post(`${connection}/orders/orderuserid`, body, {headers: {'Authorization': `Basic ${props.logData.token}`}});
+
             setOrders(res.data)
         } catch (err) {
             console.log({message: err.message})
@@ -69,7 +77,8 @@ const Allorders = (props) => {
     // GET ALL ORDERS
     const allOrders = async () => {
         try{
-            let res = await axios.get('http://localhost:3005/orders', {headers: {'Authorization': `Basic ${props.logData.token}`}});
+            // let res = await axios.get('http://localhost:3005/orders', {headers: {'Authorization': `Basic ${props.logData.token}`}});
+            let res = await axios.get(`${connection}/orders`, {headers: {'Authorization': `Basic ${props.logData.token}`}});
             setOrders(res.data)
         } catch (err) {
             console.log({message: err.message})
@@ -83,7 +92,8 @@ const Allorders = (props) => {
             let body = {
                 "orderId": orderId
             }
-            await axios.post('http://localhost:3005/orders/delete', body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
+            // await axios.post('http://localhost:3005/orders/delete', body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
+            await axios.post(`${connection}/orders/delete`, body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
         } catch (err) {
             console.log({message: err.message})
         }
