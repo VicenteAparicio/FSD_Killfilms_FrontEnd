@@ -17,13 +17,10 @@ const Client = (props) => {
             case "allmovies":
                 props.dispatch({type:ADMINACTION,payload:"allmovies"})
                 break;
-                case "orders":
-                    props.dispatch({type:ADMINACTION,payload:"orders"})
-                    break;
-            //     break;
-            // case "createmovies":
-            //     props.dispatch({type:ADMINACTION,payload:"createmovies"})
-            //     break;
+            case "allorders":
+                props.dispatch({type:ADMINACTION,payload:"allorders"})
+                break;
+
             default:
                 break;
 
@@ -35,7 +32,7 @@ const Client = (props) => {
         <div className="clientContainer">
             <div className="clientBox">
             <div className="clientActions" onClick={()=>clientFn("allmovies")}><FontAwesomeIcon className="faIcons" icon={faFilm}/></div>
-            <div className="adminActions" onClick={()=>clientFn("orders")}><FontAwesomeIcon className="faIcons" icon={faReceipt}/></div>
+            <div className="adminActions" onClick={()=>clientFn("allorders")}><FontAwesomeIcon className="faIcons" icon={faReceipt}/></div>
                 {/* <div className="adminActions" onClick={()=>AdminFn("allusers")}>ALL USERS</div>
                 <div className="adminActions" onClick={()=>AdminFn("createmovies")}>CREATE MOVIES</div> */}
                 

@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 // IMPORT ICONS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinusSquare } from '@fortawesome/free-solid-svg-icons';
 
 const Allusers = (props) => {
-
+    let history = useHistory();
     const [users, setUsers] = useState([]);
 
     useEffect(()=>{
@@ -62,6 +63,15 @@ const Allusers = (props) => {
     
             </div>
                 
+        )
+    } else {
+
+        setTimeout(()=>{
+            history.push('/register')
+        }, 1000);
+
+        return (
+            <div>Not allowed</div>
         )
     }
 }
