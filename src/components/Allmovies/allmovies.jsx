@@ -14,13 +14,11 @@ const Allmovies = (props) => {
     // const [genre, setGenre] = useState({options:''});
     const [showDelete, setShowDelete] = useState('');
     const [movies, setMovies] = useState([]);
-    const [loading, setLoading] = useState(false);
     const [search, setSearch] = useState("");
     const [searchActor, setSearchActor] = useState("");
     const [filteredMovies, setFilteredMovies] = useState([]);
 
     useEffect(()=>{
-        setLoading(true);
         allMovies();
         userControl();
     },[]);
@@ -97,7 +95,6 @@ const Allmovies = (props) => {
         try{
             let res = await axios.get('http://localhost:3005/movies/allmovies', {headers: {'Authorization': `Basic ${props.logData.token}`}});
             setMovies(res.data);
-            setLoading(false);
         } catch (err) {
             console.log({message: err.message})
         }
@@ -127,8 +124,6 @@ const Allmovies = (props) => {
                 "title": movieTitle,
                 "isPremium": premiumCheck
             }
-            console.log("esto es el title: ",body.title)
-            console.log("esto es el premium: ",body.isPremium)
             await axios.post('http://localhost:3005/movies/updatemovie', body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
         } catch (err) {
             console.log({message: err.message})
@@ -138,10 +133,6 @@ const Allmovies = (props) => {
 
     const path = "https://image.tmdb.org/t/p";
     const size ="w200";
-
-    if (loading) {
-        return <p>"Loading movies"</p>
-    }
 
     return (
         <div className="allMoviesContainer">

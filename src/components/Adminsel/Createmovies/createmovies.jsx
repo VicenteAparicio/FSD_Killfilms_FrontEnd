@@ -1,13 +1,14 @@
 // IMPORT MOTORS
 import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 // IMPORT ICONS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 
 const Createmovies = (props) => {
-
+    let history = useHistory();
     const [titleMovie, setTitleMovie] = useState({title:''});
 
     useEffect(()=>{
@@ -57,6 +58,15 @@ const Createmovies = (props) => {
                 </div>
         
             </div>
+        )
+    } else {
+
+        setTimeout(()=>{
+            history.push('/register')
+        }, 1000);
+
+        return (
+            <div>Not allowed</div>
         )
     }
 }

@@ -41,15 +41,18 @@ const Watch = (props) => {
 
     const updateTimesWatched = async (element) =>{
         let count = element.howManyTimesWatched+1;
+
         let watchDates = [];
         watchDates.push(element.watchDates);
         watchDates.push(new Date());
+
         let body = {
+            "userId": props.logData.user.id,
             "orderId": element.id,
             "howManyTimesWatched" : count,
             "watchDates": watchDates
         }
-        axios
+        await axios
             .post('http://localhost:3005/orders/modifycount', body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
     }
 
@@ -57,12 +60,10 @@ const Watch = (props) => {
         let body = {
             "userId": props.logData.user.id
         }
-        console.log("pasamos userId para búsqueda de las películas vistas de User id ", body.userId)
         let res = await axios.post('http://localhost:3005/orders/orderuserid', body)
         if (res.data[0]){
             let count = 0;
                 res.data.forEach(element => {
-                    console.log("titulo del props", props.detail.title)
                     if (element.titleMovie === props.detail.title){
                         count = 1;
                         updateTimesWatched(element);
@@ -86,7 +87,7 @@ const Watch = (props) => {
 
                 <div className="playMovieBox">
                 
-                        <iframe className="filmTransmission" src={props.detail.urlTrailer} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true"></iframe>
+                        <iframe className="filmTransmission" src={props.detail.urlTrailer} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullscreen="true"></iframe>
 
 
                 </div>
