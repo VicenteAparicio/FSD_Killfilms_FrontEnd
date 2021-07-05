@@ -134,7 +134,7 @@ const Allorders = (props) => {
         return (
             <div className="allOrdersContainer">
 
-                <div className="searchMovieContainer">
+                <div className="searchOrderContainer">
                     <input className={showSearchBar} name="orderSearch" type="text" placeholder="User id" onChange={(e)=>searchOrderId(e.target.value)}></input>
                     <input className={showSearchBar} name="orderSearch" type="text" placeholder="Title" onChange={(e)=>searchTitle(e.target.value)}></input>
 

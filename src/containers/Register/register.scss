@@ -1,5 +1,6 @@
 .containerRegister{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -9,6 +10,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
+        flex-wrap: wrap;
         background-color: black;
         width: 60%;
         padding: 2em;
@@ -47,9 +49,7 @@
         color: yellow;
         padding: .2em;
         margin: .2em 0 .4em;
-        width: 20vw;
-        max-width: 30em;
-        min-width: 20em;
+        width: 100%;
         
     }
     .inputsRegisterHalf {
@@ -89,4 +89,19 @@
         width: 40em;
         margin-bottom: 1em;
     }
+}
+
+@media (max-width: 950px){
+    .boxRegister{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        padding: 0;
+        margin: 0;
+    }
+    .personalInfo{
+        width: 80%;
+    }
+
 }
