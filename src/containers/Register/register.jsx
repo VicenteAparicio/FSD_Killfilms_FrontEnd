@@ -10,6 +10,10 @@ import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 
 const Register = () => {
 
+    let connection = "http://localhost:3005";
+    // let connection = "https://killfilms.herokuapp.com";
+    // let connection = "https://killfilmsbackend.herokuapp.com";
+    
     let history = useHistory();
 
     // Hooks
@@ -84,7 +88,7 @@ const Register = () => {
             lastname: credentials.lastName,
             email: credentials.email,
             password: credentials.password,
-            birthdate: credentials.birthDate,
+            birthDate: credentials.birthDate,
             country: credentials.country,
             city: credentials.city,
             cp: credentials.cp,
@@ -94,7 +98,8 @@ const Register = () => {
         }
         
         axios
-            .post('http://localhost:3005/users/newuser', body)
+            // .post('http://localhost:3005/users/newuser', body)
+            .post(`${connection}/users/newuser`, body)
             .then((res)=>{
                 if(res){
                     alert("Gracias por registrarte con nosotros")

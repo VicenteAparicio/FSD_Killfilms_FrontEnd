@@ -8,6 +8,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 
 const Createmovies = (props) => {
+
+    let connection = "http://localhost:3005";
+    // let connection = "https://killfilms.herokuapp.com";
+    // let connection = "https://killfilmsbackend.herokuapp.com";
+
     let history = useHistory();
     const [titleMovie, setTitleMovie] = useState({title:''});
 
@@ -30,7 +35,8 @@ const Createmovies = (props) => {
         }
 
         axios
-            .post('http://localhost:3005/movies/createmovie', body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
+            // .post('http://localhost:3005/movies/createmovie', body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
+            .post(`${connection}/movies/createmovie`, body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
         
             .then ((res)=>{
                 if(typeof res.data == "string"){

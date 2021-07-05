@@ -1,0 +1,45 @@
+.profileContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 4em 0;
+}
+
+.profileBox{
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    color: yellow;
+    padding: 2em;
+}
+.profileCard{
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    color: yellow;
+}
+.upDataInfo {
+    all: unset;
+    border-bottom: .1em dotted yellow;
+    padding: .5em 0;
+}
+
+.boxButton{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 1em;
+}
+.buttonProfile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3em;
+    height: 3em;
+    .faIcons{
+        color: yellow;
+    }
+    
+}

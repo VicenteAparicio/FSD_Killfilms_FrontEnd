@@ -7,6 +7,7 @@ import Moviedetail from '../Moviedetail/moviedetail';
 import Createmovies from '../Adminsel/Createmovies/createmovies';
 import Allusers from '../Adminsel/Allusers/allusers';
 import Allorders from '../Adminsel/Allorders/allorders';
+import Profile from '../Profile/profile';
 
 
 
@@ -40,6 +41,12 @@ const Visual = (props) => {
             return(
                 <div className="visualContainer">
                     <Allorders/>
+                </div>
+            )
+        case "profile":
+            return(
+                <div className="visualContainer">
+                    <Profile/>
                 </div>
             )
         default:

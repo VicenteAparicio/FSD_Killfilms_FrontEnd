@@ -5,8 +5,7 @@ import {connect} from 'react-redux';
 // IMPORT ICONS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faSignInAlt, faSignOutAlt, faUserCircle, faUserPlus } from '@fortawesome/free-solid-svg-icons';
-// IMPORT STYLES
-import '../../Global.css';
+// IMPORT ACTIONS
 import { LOGOUT } from '../../redux/types';
 import { CLEARADMINACTION } from '../../redux/types';
 

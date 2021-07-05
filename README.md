@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+# KILL FILMS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project details
 
-## Available Scripts
+### Film streaming platform front-end project challenge from Fullstack Developer Bootcamp at <a href="https://geekshubsacademy.com/">GeeksHubs Academy</a> 2021. On this project I have created a front-end film streaming platform based on basic and premium suscriptors. The admin can delete users, registers and upgrade premium movies.
+<br>
 
-In the project directory, you can run:
+- Start date: 21 June 2021
+- Delivery date: 4 Jyly 2021
+- Dedicated time: < 80 hours 
 
-### `npm start`
+<br>
+<br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Guide
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<br>
 
-### `npm test`
+- [Instructions](#instructions)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+- [Author](#developers)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br>
+<br>
+<img src="./readmeIMG/image03.png" style="width: 100%">
+<br><br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Tech
 
-### `npm run eject`
+- JAVASCRIPT<br>
+- POSTMAN<br>
+- SEQUELIZE<br>
+- MYSQL WORKBENCH<br>
+- REACT<br>
+- NODE<br>
+- FONT-AWESOME<br>
+- REDUX<br>
+- AXIOS<br>
+- SCSS<br><br><br>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<img src="./readmeIMG/image01.png" style="width: 100%"><br><br>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## <a name="instructions">Instructions</a>
+<br>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- 1 Clone repositorie <br>
+- 2 Install dependencies <code> npm i </code> and execute app <code> npm start </code>
+- 3 Get this <a href="https://github.com/VicenteAparicio/blockbuster">BACKEND</a>
+- 4 Install dependencies <code> npm i </code> and mount backend <code> npm start </code>
+- 5 Register superuser and give admin permissions from backend (you can create normal users too)
 
-## Learn More
+<br>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<img src="./readmeIMG/image05.png" style="width: 100%"><br><br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- 6 Start filling your own database movie directorie writing your favourites movies, some movies can become only Premium users.
+- 7 Watch your favourites movies
 
-### Making a Progressive Web App
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<img src="./readmeIMG/image07.png" style="width: 100%"><br><br>
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+***
+<br>
 
-### Deployment
+## ISSUES
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### My own database movie
+<br>
+This was my first react project by myself. I had to use a backend created in collaboration with #GeeksHubs Academy partner, but when I started the project I realized I would have to do some modifications cause I use my backend to fill my own database movie. 
+<br><br>
 
-### `npm run build` fails to minify
+<img src="./readmeIMG/image06.png" style="width: 100%"><br><br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### HEROKUAPP:
+
+I try to upload my front-end and back-end to HEROKU SERVICE. I did but for some reasons I didn't know how to fix I couln'd connect my front with my backend. I waste a lot of hours trying to figure out searching on internet but at some time I decide quit that and continue developing the project.
+<br><br>
+
+<img src="./readmeIMG/image08.png" style="width: 48%; height: 200px">
+<img src="./readmeIMG/image09.png" style="width: 48%; height: 200px"><br><br>
+
+### Stuff I left behind
+
+Due this issues I left behind several stuff I wanted to finish:
+
+- Nice landing page
+- Filter movies by rate
+- Filter movies by year
+- Movies recomendations
+- Become Premium User
+- Control Premium expiration date
+
+## THANKS
+
+To my classroom mates and teachers, and every single one who contribute to make this comunity bigger step by step.

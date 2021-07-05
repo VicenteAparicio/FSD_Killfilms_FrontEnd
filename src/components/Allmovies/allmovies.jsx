@@ -11,7 +11,11 @@ import { faMinusSquare, faStar } from '@fortawesome/free-solid-svg-icons';
 
 const Allmovies = (props) => {
 
-    // const [genre, setGenre] = useState({options:''});
+    let connection = "http://localhost:3005";
+    // let connection = "https://killfilms.herokuapp.com";
+    // let connection = "https://killfilmsbackend.herokuapp.com";
+
+
     const [showDelete, setShowDelete] = useState('');
     const [movies, setMovies] = useState([]);
     const [search, setSearch] = useState("");
@@ -93,7 +97,8 @@ const Allmovies = (props) => {
 
     const allMovies = async () => {
         try{
-            let res = await axios.get('http://localhost:3005/movies/allmovies', {headers: {'Authorization': `Basic ${props.logData.token}`}});
+            // let res = await axios.get('http://localhost:3005/movies/allmovies', {headers: {'Authorization': `Basic ${props.logData.token}`}});
+            let res = await axios.get(`${connection}/movies/allmovies`, {headers: {'Authorization': `Basic ${props.logData.token}`}});
             setMovies(res.data);
         } catch (err) {
             console.log({message: err.message})
@@ -105,7 +110,8 @@ const Allmovies = (props) => {
             let body = {
                 "title": title
             }
-            await axios.post('http://localhost:3005/movies/deletemovie', body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
+            // await axios.post('http://localhost:3005/movies/deletemovie', body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
+            await axios.post(`${connection}/movies/deletemovie`, body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
             alert("La película " +  title + " ha sido eliminada")
         } catch (err) {
             console.log({message: err.message})
@@ -124,7 +130,8 @@ const Allmovies = (props) => {
                 "title": movieTitle,
                 "isPremium": premiumCheck
             }
-            await axios.post('http://localhost:3005/movies/updatemovie', body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
+            // await axios.post('http://localhost:3005/movies/updatemovie', body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
+            await axios.post(`${connection}/movies/updatemovie`, body, {headers: {'Authorization': `Basic ${props.logData.token}`}})
         } catch (err) {
             console.log({message: err.message})
         }

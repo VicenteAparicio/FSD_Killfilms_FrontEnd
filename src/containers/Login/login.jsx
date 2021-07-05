@@ -14,6 +14,10 @@ import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 
 const Login = (props) => {
 
+    let connection = "http://localhost:3005";
+    // let connection = "https://killfilms.herokuapp.com";
+    // let connection = "https://killfilmsbackend.herokuapp.com";
+
     let history = useHistory();
 
     // Hooks
@@ -34,7 +38,8 @@ const Login = (props) => {
         }
         
         axios
-            .post('http://localhost:3005/login', body)
+            // .post('http://localhost:3005/login', body)
+            .post(`${connection}/login`, body)
             .then((res)=>{
                 //Guardo en RDX
                 props.dispatch({type:LOGIN,payload:res.data});
