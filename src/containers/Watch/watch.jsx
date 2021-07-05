@@ -11,9 +11,9 @@ import { faAngleLeft, faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 
 const Watch = (props) => {
 
-    // let connection = "http://localhost:3005";
+    let connection = "http://localhost:3005";
     // let connection = "https://killfilms.herokuapp.com";
-    let connection = "https://killfilmsbackend.herokuapp.com";
+    // let connection = "https://killfilmsbackend.herokuapp.com";
 
     let history = useHistory();
 
@@ -97,13 +97,14 @@ const Watch = (props) => {
 
                 <div className="playMovieBox">
                 
-                        <iframe className="filmTransmission" src={props.detail.urlTrailer} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullscreen="true"></iframe>
+                        <iframe className="filmTransmission" src={props.detail.urlTrailer} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen="true"></iframe>
 
 
                 </div>
                 <div className="menuWatch">
                     <div className="detailOptions">
-                            <div className="buttonDetails" onClick={()=>back()}><FontAwesomeIcon className="faIcons" icon={faAngleLeft}/></div><div className="buttonDetails" onClick={()=>watchMovie()}><FontAwesomeIcon className="faIcons" icon={faPlayCircle}/></div>
+                            <div className="buttonDetails" onClick={()=>back()}><FontAwesomeIcon className="faIcons" icon={faAngleLeft}/></div>
+                            <div className="buttonDetails" onClick={()=>watchMovie()}><FontAwesomeIcon className="faIcons" icon={faPlayCircle}/></div>
                     </div>
                 </div>
                 

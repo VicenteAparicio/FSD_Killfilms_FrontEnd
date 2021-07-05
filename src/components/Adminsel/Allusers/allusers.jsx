@@ -8,9 +8,9 @@ import { faMinusSquare } from '@fortawesome/free-solid-svg-icons';
 
 const Allusers = (props) => {
 
-        // let connection = "http://localhost:3005";
+        let connection = "http://localhost:3005";
         // let connection = "https://killfilms.herokuapp.com";
-        let connection = "https://killfilmsbackend.herokuapp.com";
+        // let connection = "https://killfilmsbackend.herokuapp.com";
 
     let history = useHistory();
 

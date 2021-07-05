@@ -10,9 +10,9 @@ import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 
 const Register = () => {
 
-    // let connection = "http://localhost:3005";
+    let connection = "http://localhost:3005";
     // let connection = "https://killfilms.herokuapp.com";
-    let connection = "https://killfilmsbackend.herokuapp.com";
+    // let connection = "https://killfilmsbackend.herokuapp.com";
     
     let history = useHistory();
 
@@ -88,7 +88,7 @@ const Register = () => {
             lastname: credentials.lastName,
             email: credentials.email,
             password: credentials.password,
-            birthdate: credentials.birthDate,
+            birthDate: credentials.birthDate,
             country: credentials.country,
             city: credentials.city,
             cp: credentials.cp,

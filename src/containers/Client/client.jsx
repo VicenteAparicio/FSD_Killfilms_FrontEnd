@@ -7,7 +7,7 @@ import Visual from '../../components/Visual/visual';
 import { ADMINACTION } from '../../redux/types';
 // IMPORT ICONS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFilm, faReceipt} from '@fortawesome/free-solid-svg-icons';
+import { faFilm, faIdCard, faReceipt} from '@fortawesome/free-solid-svg-icons';
 const Client = (props) => {
 
     
@@ -19,6 +19,9 @@ const Client = (props) => {
                 break;
             case "allorders":
                 props.dispatch({type:ADMINACTION,payload:"allorders"})
+                break;
+            case "profile":
+                props.dispatch({type:ADMINACTION,payload:"profile"})
                 break;
 
             default:
@@ -33,6 +36,7 @@ const Client = (props) => {
             <div className="clientBox">
             <div className="clientActions" onClick={()=>clientFn("allmovies")}><FontAwesomeIcon className="faIcons" icon={faFilm}/></div>
             <div className="adminActions" onClick={()=>clientFn("allorders")}><FontAwesomeIcon className="faIcons" icon={faReceipt}/></div>
+            <div className="adminActions" onClick={()=>clientFn("profile")}><FontAwesomeIcon className="faIcons" icon={faIdCard}/></div>
                 {/* <div className="adminActions" onClick={()=>AdminFn("allusers")}>ALL USERS</div>
                 <div className="adminActions" onClick={()=>AdminFn("createmovies")}>CREATE MOVIES</div> */}
                 
