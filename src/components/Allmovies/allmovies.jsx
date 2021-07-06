@@ -11,9 +11,9 @@ import { faMinusSquare, faStar } from '@fortawesome/free-solid-svg-icons';
 
 const Allmovies = (props) => {
 
-    let connection = "http://localhost:3005";
-    // let connection = "https://killfilms.herokuapp.com";
-    // let connection = "https://killfilmsbackend.herokuapp.com";
+    // let connection = "http://localhost:3005";
+    let connection = "https://killfilmsbackend.herokuapp.com";
+    
 
 
     const [showDelete, setShowDelete] = useState('');
