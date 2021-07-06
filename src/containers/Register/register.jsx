@@ -10,9 +10,8 @@ import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 
 const Register = () => {
 
-    let connection = "http://localhost:3005";
-    // let connection = "https://killfilms.herokuapp.com";
-    // let connection = "https://killfilmsbackend.herokuapp.com";
+    // let connection = "http://localhost:3005";
+    let connection = "https://killfilmsbackend.herokuapp.com";
     
     let history = useHistory();
 

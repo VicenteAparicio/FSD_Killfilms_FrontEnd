@@ -9,9 +9,8 @@ import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 
 const Createmovies = (props) => {
 
-    let connection = "http://localhost:3005";
-    // let connection = "https://killfilms.herokuapp.com";
-    // let connection = "https://killfilmsbackend.herokuapp.com";
+    // let connection = "http://localhost:3005";
+    let connection = "https://killfilmsbackend.herokuapp.com";
 
     let history = useHistory();
     const [titleMovie, setTitleMovie] = useState({title:''});

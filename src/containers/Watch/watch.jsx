@@ -11,9 +11,8 @@ import { faAngleLeft, faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 
 const Watch = (props) => {
 
-    let connection = "http://localhost:3005";
-    // let connection = "https://killfilms.herokuapp.com";
-    // let connection = "https://killfilmsbackend.herokuapp.com";
+    // let connection = "http://localhost:3005";
+    let connection = "https://killfilmsbackend.herokuapp.com";
 
     let history = useHistory();
 
