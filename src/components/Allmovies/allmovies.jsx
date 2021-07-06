@@ -60,7 +60,7 @@ const Allmovies = (props) => {
                 setShowDelete("deleteButton");
                 break;
             case false:
-                setShowDelete("hideButton");
+                setShowDelete("hide");
                 break;
             default:
                 setShowDelete("");
