@@ -1,3 +1,10 @@
 .containerHome{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
+}
+.logoKill{
+    width: 80%;
+    max-width: 40em;
 }

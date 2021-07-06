@@ -9,7 +9,6 @@ import { faMinusSquare } from '@fortawesome/free-solid-svg-icons';
 const Allusers = (props) => {
 
         let connection = "http://localhost:3005";
-        // let connection = "https://killfilms.herokuapp.com";
         // let connection = "https://killfilmsbackend.herokuapp.com";
 
     let history = useHistory();
@@ -94,7 +93,7 @@ const Allusers = (props) => {
         return (
             <div className="allUsersContainer">
 
-                <div className="searchMovieContainer">
+                <div className="searchUserContainer">
                     <input className="searchBar" name="orderSearch" type="text" placeholder="User id" onChange={(e)=>searchUserId(e.target.value)}></input>
                     <input className="searchBar" name="orderSearch" type="text" placeholder="Email" onChange={(e)=>searchByEmail(e.target.value)}></input>
 
@@ -102,7 +101,7 @@ const Allusers = (props) => {
                 
                         
                 <div className="usersBox">
-                    <div className="titlesBox">
+                    <div className="titlesUsers">
                         <div className="usersInfoShort">ID</div>
                         <div className="usersInfo">NAME</div>
                         <div className="usersInfo">LASTNAME</div>
