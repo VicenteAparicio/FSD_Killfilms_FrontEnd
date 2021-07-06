@@ -12,7 +12,8 @@ import { CLEARADMINACTION } from '../../redux/types';
 const Profile = (props) => {
 
         // let connection = "http://localhost:3005";
-        let connection = "https://killfilmsbackend.herokuapp.com";
+        // let connection = "https://killfilmsbackend.herokuapp.com";
+        let connection = "eu-cdbr-west-01.cleardb.com";
 
     let history = useHistory();
 
