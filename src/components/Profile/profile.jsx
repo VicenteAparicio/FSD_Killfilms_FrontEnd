@@ -11,8 +11,8 @@ import { CLEARADMINACTION } from '../../redux/types';
 
 const Profile = (props) => {
 
-        // let connection = "http://localhost:3005";
-        let connection = "https://killfilmsbackend.herokuapp.com";
+    // let connection = "http://localhost:3005";
+    let connection = "https://killfilmsbackend.herokuapp.com";
         
 
     let history = useHistory();
