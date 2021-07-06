@@ -11,8 +11,7 @@ import { faMinusSquare } from '@fortawesome/free-solid-svg-icons';
 const Allorders = (props) => {
 
     // let connection = "http://localhost:3005";
-    // let connection = "https://killfilmsbackend.herokuapp.com";
-    let connection = "eu-cdbr-west-01.cleardb.com";
+    let connection = "https://killfilmsbackend.herokuapp.com";
     
     let history = useHistory();
 
