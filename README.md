@@ -6,7 +6,7 @@
 <br>
 
 - Start date: 21 June 2021
-- Delivery date: 4 Jyly 2021
+- Delivery date: 4 July 2021
 - Dedicated time: < 80 hours 
 
 <br>
