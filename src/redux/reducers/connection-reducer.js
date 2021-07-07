@@ -12,7 +12,7 @@ const selectMovieReducer = (state = initialState, action) => {
             return action.payload;
 
         default : 
-            return state
+            return initialState
     }
 }
 export default selectMovieReducer;
