@@ -12,7 +12,7 @@
     flex-direction: column;
     background-color: black;
     color: yellow;
-    padding: 2em;
+    padding: 2em 3em;
 }
 .profileCard{
     display: flex;
@@ -20,10 +20,12 @@
     background-color: black;
     color: yellow;
     font-family: 'Roboto Mono', monospace;
+    padding-bottom: 1em;
+    border-bottom: .1em dotted yellow;
 }
 
 .profileInfo{
-
+    margin-bottom: .2em;
 }
 
 .upDataInfo {
