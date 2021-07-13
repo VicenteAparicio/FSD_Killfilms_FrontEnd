@@ -18,7 +18,7 @@ const Profile = (props) => {
     let history = useHistory();
 
     // HOOKS
-    const [userEdit, setUserEdit] = useState({name:props.logData.user?.name, lastname:props?.logData.user?.lastname, password:props?.logData.user.password,birthdate:props?.logData.user.birthdate,email:props.logData.user?.email,country:props.logData.user?.country,city:props.logData.user?.city,cp:props.logData.user?.cp});
+    const [userEdit, setUserEdit] = useState({name:props.logData.user?.name, lastname:props?.logData.user?.lastname, password:props?.logData.user.password,birthDate:props?.logData.user.birthDate,email:props.logData.user?.email,country:props.logData.user?.country,city:props.logData.user?.city,cp:props.logData.user?.cp});
     const [allowEdit, setAllowEdit] = useState(false);
 
     // HANDLER
@@ -94,13 +94,15 @@ const Profile = (props) => {
                         
                 <div className="profileBox">
                     <div className="profileCard">
-                        <div className="usersInfoShort">ID: {props.logData.user.id}</div>
-                        <div className="usersInfo">NAME: {props.logData.user.name}</div>
-                        <div className="usersInfo">LASTNAME: {props.logData.user.lastname}</div>
-                        <div className="usersInfo">BIRTHDATE: {props.logData.user.birthdate}</div>{console.log(props.logData.user.birthdate)}
-                        <div className="usersInfo">EMAIL: {props.logData.user.email}</div>
-                        <div className="usersInfoBoolean">PREMIUM: {props.logData.user.isPremium.toString()}</div>
-                        <div className="usersInfoBoolean">ADMIN: {props.logData.user.isAdmin.toString()}</div>
+                        <div className="profileInfo">ID: {props.logData.user.id}</div>
+                        <div className="profileInfo">NAME: {props.logData.user.name}</div>
+                        <div className="profileInfo">LASTNAME: {props.logData.user.lastname}</div>
+                        <div className="profileInfo">BIRTHDATE: {props.logData.user.birthDate}</div>{console.log(props.logData.user.birthDate)}
+                        <div className="profileInfo">EMAIL: {props.logData.user.email}</div>
+                        <div className="profileInfo">COUNTRY: {props.logData.user.country}</div>
+                        <div className="profileInfo">CITY: {props.logData.user.city}</div>
+                        <div className="profileInfo">C.P.: {props.logData.user.cp}</div>
+                        
                     </div>
                 
                     <div className="boxButton">
